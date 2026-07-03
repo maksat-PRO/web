@@ -12,6 +12,7 @@ import { FounderReadinessScore } from "./pages/FounderReadinessScore";
 import { CVCLaunchPack } from "./pages/CVCLaunchPack";
 import { Insights } from "./pages/Insights";
 import { TrustCenter } from "./pages/TrustCenter";
+import { TrackRecord } from "./pages/TrackRecord";
 import { Cases } from "./pages/Cases";
 import { Contact } from "./pages/Contact";
 import { Privacy } from "./pages/Privacy";
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
       { path: "cvc-launch-pack", Component: CVCLaunchPack },
       { path: "insights", Component: Insights },
       { path: "trust-center", Component: TrustCenter },
+      { path: "track-record", Component: TrackRecord },
       { path: "cases", Component: Cases },
       { path: "contact", Component: Contact },
       { path: "privacy", Component: Privacy },
