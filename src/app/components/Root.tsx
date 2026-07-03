@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ScrollProgress } from "./ScrollProgress";
+import { PageSignature } from "./PageSignature";
 
 const classForPath = (path: string) => {
   if (path === "/") return "route-home";
@@ -28,6 +29,7 @@ export function Root() {
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0" style={{ background: "var(--gradient-bg)" }} />
+        <PageSignature />
         <div className="absolute inset-0 bay-noise opacity-80" />
         <div
           className="absolute -top-56 left-1/2 h-[620px] w-[980px] -translate-x-1/2 opacity-80 blur-3xl"
