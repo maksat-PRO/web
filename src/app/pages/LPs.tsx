@@ -8,45 +8,60 @@ export function LPs() {
     {
       title: "Proprietary founder access",
       description:
-        "We focus on technical founders from CIS and adjacent ecosystems who may have strong products, prior exits, or deep local traction, but need international packaging and trusted access.",
+        "We focus on technical founders from CIS and post-Soviet ecosystems who may have strong products, prior exits, or deep local traction, but need international packaging and trusted access.",
     },
     {
-      title: "Shared venture infrastructure",
+      title: "Prior-exit founders that need global packaging",
       description:
-        "LPs benefit from a platform model where sourcing, diligence, IC materials, reporting, and portfolio support are reused across CVCs, funds, and dedicated mandates.",
+        "Some founders already built meaningful companies locally. We help them become understandable, diligence-ready, and credible for international capital and strategic partners.",
     },
     {
-      title: "Global commercialization corridors",
+      title: "Bridge to MENA, US, and EU commercialization",
       description:
-        "Our operating thesis is built around MENA, US, and EU pathways where founders can find strategic customers, co-investors, accelerators, and exit-relevant partners.",
+        "Our operating thesis is built around corridors where founders can find corporate buyers, family offices, accelerators, co-investors, and exit-relevant partners.",
     },
     {
       title: "AI-enabled Fund OS",
       description:
-        "We use internal workflows to structure deal flow, founder intelligence, memo generation, portfolio monitoring, and LP reporting with repeatable discipline.",
+        "We use internal workflows to structure sourcing, scoring, due diligence, IC preparation, memo generation, portfolio monitoring, and LP reporting.",
+    },
+    {
+      title: "Shared platform economics",
+      description:
+        "LPs benefit from a platform model where sourcing, diligence, reporting, and portfolio support are reused across CVCs, classic funds, DAO-style access, SPVs, and mono-LP mandates.",
+    },
+    {
+      title: "Co-investment optionality",
+      description:
+        "Larger eligible LPs may receive curated co-investment opportunities alongside the platform, subject to capacity, allocation policy, conflicts review, and compliance approval.",
+    },
+    {
+      title: "Compliance-first onboarding",
+      description:
+        "We apply KYC, AML, sanctions screening, source-of-funds review, data room discipline, and jurisdiction-specific counsel review before any formal capital process.",
     },
   ];
 
   const portfolioConstruction = [
     {
       product: "DAO Fund Access",
-      size: "$5M target",
-      lpTicket: "$5K–$100K",
-      stage: "Early exposure / SPV-style",
+      targetSize: "$5M target",
+      lpTicket: "$5K–$100K LP ticket",
+      stage: "Early access / SPV-style",
       companies: "20–40 exposures",
       reserve: "Light reserves",
     },
     {
       product: "Classic VC Fund",
-      size: "$10M–$20M target",
-      lpTicket: "$500K–$2M",
+      targetSize: "$10M–$20M target",
+      lpTicket: "$500K–$2M LP ticket",
       stage: "Seed–Series A",
       companies: "20–30 companies",
       reserve: "Follow-on reserve",
     },
     {
       product: "Custom CVC Program",
-      size: "From $2M",
+      targetSize: "From $2M",
       lpTicket: "Corporate mandate",
       stage: "Strategic pilots + investments",
       companies: "10–20 scouted / 3–7 invested",
@@ -54,7 +69,7 @@ export function LPs() {
     },
     {
       product: "Dedicated Mono-LP Fund",
-      size: "From $10M",
+      targetSize: "From $10M",
       lpTicket: "Single LP",
       stage: "Custom mandate",
       companies: "Custom",
@@ -63,23 +78,26 @@ export function LPs() {
   ];
 
   const governance = [
-    "Quarterly LP reporting and portfolio updates",
-    "Capital account statements and fund-level data room",
-    "IC memo archive and pipeline visibility where appropriate",
+    "Quarterly LP reports and portfolio updates",
+    "Capital account statements",
+    "Pipeline and portfolio dashboard",
+    "IC memos archive",
     "Annual fund review and forward-looking reserve planning",
-    "Conflict-of-interest and allocation policy discipline",
+    "Conflict-of-interest policy",
     "LPAC / advisory committee mechanics for larger structures",
-    "KYC, AML, sanctions, and source-of-funds onboarding",
-    "Co-investment allocation policy for eligible LPs",
+    "Co-investment allocation policy",
+    "Data room with legal, tax, compliance, KYC, AML, and fund documents",
   ];
 
   const risks = [
     "Founder and execution risk",
+    "Sanctions and source-of-funds risk",
+    "Jurisdiction and cross-border structuring risk",
     "Follow-on financing and valuation risk",
     "Exit timing and liquidity risk",
-    "Jurisdiction, sanctions, and source-of-funds risk",
     "Currency and cross-border transfer risk",
     "Concentration and allocation risk",
+    "Conflicts between CVCs, the fund, DAO-style access, SPVs, and mono-LP vehicles",
   ];
 
   return (
@@ -120,19 +138,19 @@ export function LPs() {
 
         <section className="mb-16 sm:mb-20 lg:mb-24">
           <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">
-            Why LPs Back the Platform
+            Why LPs Back Us
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
             {reasons.map((reason, index) => (
               <motion.div
                 key={reason.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                transition={{ delay: index * 0.06 }}
                 className="rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-8"
               >
-                <h3 className="text-[20px] sm:text-[24px] font-light tracking-tight text-foreground/90 mb-3">
+                <h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3">
                   {reason.title}
                 </h3>
                 <p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">
@@ -148,6 +166,14 @@ export function LPs() {
             Portfolio Construction Logic
           </h2>
           <div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] overflow-hidden">
+            <div className="hidden xl:grid grid-cols-6 gap-4 px-6 py-4 border-b border-white/[0.05] text-[11px] text-muted-foreground/42 font-light uppercase tracking-wider">
+              <div>Product</div>
+              <div>Target size</div>
+              <div>Ticket</div>
+              <div>Stage</div>
+              <div>Target companies</div>
+              <div>Reserve logic</div>
+            </div>
             <div className="divide-y divide-white/[0.04]">
               {portfolioConstruction.map((row, index) => (
                 <motion.div
@@ -156,32 +182,17 @@ export function LPs() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.06 }}
-                  className="grid grid-cols-1 lg:grid-cols-6 gap-4 p-5 sm:p-6"
+                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 p-5 sm:p-6"
                 >
-                  <div className="lg:col-span-2">
-                    <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">
-                      Product
-                    </div>
-                    <div className="text-[16px] sm:text-[18px] text-foreground/88 font-light">
-                      {row.product}
-                    </div>
-                  </div>
                   <div>
-                    <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Size</div>
-                    <div className="text-[13px] text-muted-foreground/72 font-light">{row.size}</div>
+                    <div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Product</div>
+                    <div className="text-[16px] sm:text-[18px] text-foreground/88 font-light">{row.product}</div>
                   </div>
-                  <div>
-                    <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">LP Ticket</div>
-                    <div className="text-[13px] text-muted-foreground/72 font-light">{row.lpTicket}</div>
-                  </div>
-                  <div>
-                    <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Stage</div>
-                    <div className="text-[13px] text-muted-foreground/72 font-light">{row.stage}</div>
-                  </div>
-                  <div>
-                    <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Reserve</div>
-                    <div className="text-[13px] text-muted-foreground/72 font-light">{row.reserve}</div>
-                  </div>
+                  <div><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Target size</div><div className="text-[13px] text-muted-foreground/72 font-light">{row.targetSize}</div></div>
+                  <div><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Ticket</div><div className="text-[13px] text-muted-foreground/72 font-light">{row.lpTicket}</div></div>
+                  <div><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Stage</div><div className="text-[13px] text-muted-foreground/72 font-light">{row.stage}</div></div>
+                  <div><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Target companies</div><div className="text-[13px] text-muted-foreground/72 font-light">{row.companies}</div></div>
+                  <div><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">Reserve logic</div><div className="text-[13px] text-muted-foreground/72 font-light">{row.reserve}</div></div>
                 </motion.div>
               ))}
             </div>
@@ -228,7 +239,7 @@ export function LPs() {
                 Co-investment engine for selected LPs
               </h2>
               <p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">
-                Larger LPs may receive curated co-investment opportunities alongside the platform, subject to eligibility, allocation policy, available capacity, conflicts review, and compliance approval.
+                LPs may receive curated co-investment opportunities alongside the fund, subject to allocation policy, eligibility, available capacity, conflicts review, and compliance approval.
               </p>
             </div>
             <div className="lg:col-span-5 flex lg:justify-end">
