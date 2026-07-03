@@ -47,6 +47,106 @@ main [class*="hover:border"] {
   }
 }
 
+.signal-card {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.018) inset;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms ease, box-shadow 420ms ease, background 420ms ease;
+}
+
+.signal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(125, 178, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 85% 14%, rgba(45, 212, 191, 0.11), transparent 32%);
+  opacity: 0;
+  transition: opacity 420ms ease;
+}
+
+.signal-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(220, 235, 255, 0.16);
+  box-shadow: 0 30px 92px rgba(0, 0, 0, 0.42), 0 0 60px rgba(76, 130, 255, 0.08);
+}
+
+.signal-card:hover::before {
+  opacity: 1;
+}
+
+.signal-card-line {
+  position: absolute;
+  right: -20%;
+  top: 0;
+  width: 55%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(164, 203, 255, 0.36), transparent);
+  transform: rotate(-18deg);
+  transform-origin: right center;
+}
+
+.venture-orbit::before,
+.venture-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: 999px;
+  border: 1px solid rgba(164, 203, 255, 0.06);
+  animation: orbitPulse 6s ease-in-out infinite;
+}
+
+.venture-orbit::after {
+  inset: 2%;
+  animation-delay: 1.6s;
+}
+
+.orbit-signal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 43%;
+  height: 2px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(125, 178, 255, 0.85), rgba(45, 212, 191, 0.2), transparent);
+  filter: drop-shadow(0 0 16px rgba(125, 178, 255, 0.35));
+  animation: orbitSweep 12s linear infinite;
+}
+
+.dashboard-preview,
+.memo-preview,
+.score-meter {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-preview::before,
+.memo-preview::before,
+.score-meter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.11), transparent 28%), radial-gradient(circle at 76% 0%, rgba(45,212,191,0.1), transparent 34%);
+  opacity: 0.75;
+}
+
+.dashboard-preview > *,
+.memo-preview > *,
+.score-meter > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes orbitSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.015); }
+}
+
 main [class*="rounded-[28px]"],
 main [class*="rounded-[32px]"],
 main [class*="rounded-[36px]"] {
@@ -121,6 +221,16 @@ main [class*="max-w-[1200px]"] {
   main [class*="rounded-[36px]"] {
     border-radius: 28px;
   }
+
+  .venture-orbit {
+    max-width: 360px;
+  }
+
+  .venture-orbit .absolute.grid {
+    width: 4.1rem;
+    height: 4.1rem;
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -162,5 +272,51 @@ main [class*="max-w-[1200px]"] {
   main [class*="px-6"] {
     padding-left: 16px;
     padding-right: 16px;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  main,
+  main * {
+    color: #111827 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  main [class*="bg-gradient-to-br"],
+  .signal-card,
+  .dashboard-preview,
+  .memo-preview,
+  .score-meter {
+    background: #ffffff !important;
+    border-color: #d1d5db !important;
+    backdrop-filter: none !important;
+  }
+
+  main [class*="bg-gradient-to-br"]::after,
+  .signal-card::before,
+  .dashboard-preview::before,
+  .memo-preview::before,
+  .score-meter::before {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-signal,
+  .venture-orbit::before,
+  .venture-orbit::after {
+    animation: none !important;
   }
 }
