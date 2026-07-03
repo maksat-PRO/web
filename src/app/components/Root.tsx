@@ -16,6 +16,7 @@ const classForPath = (path: string) => {
   if (path === "/data-room") return "route-data-room";
   if (path === "/founder-readiness-score") return "route-founder-score";
   if (path === "/cvc-launch-pack") return "route-cvc-pack";
+  if (path === "/track-record") return "route-track-record";
   if (path === "/cases") return "route-cases";
   if (path === "/insights") return "route-insights";
   if (path === "/trust-center") return "route-trust";
