@@ -6,31 +6,37 @@ import { DiagonalShards } from "../components/DiagonalShards";
 export function Advisory() {
   const capabilities = [
     {
-      title: "Strategic Transformation",
-      description: "Multi-year roadmaps with quarterly stage-gates and CFO-grade business cases.",
-      deliverables: ["Business case models", "Roadmap & stage-gate plan", "Risk registers"]
+      title: "CVC Launch & Operations",
+      description: "We help corporate groups create a venture function with a mandate, thesis, budget, IC rhythm, reporting model, and startup pipeline.",
+      deliverables: ["CVC mandate", "Pipeline sprint", "IC materials", "Governance calendar"],
     },
     {
-      title: "Technical Due Diligence",
-      description: "Investment-grade assessments for M&A, IPO-readiness, or governance reviews.",
-      deliverables: ["Architecture reviews", "Code quality audits", "Security assessments"]
+      title: "Fund Formation Support",
+      description: "We coordinate the launch package for private fund structures with counsel, administrators, banking, KYC/AML, and LP data room workflows.",
+      deliverables: ["Launch roadmap", "Document checklist", "Data room", "LP onboarding process"],
     },
     {
-      title: "Compliance Advisory",
-      description: "GDPR, PDPL, SOC 2 readiness with evidence-first documentation.",
-      deliverables: ["Gap analysis", "Control frameworks", "Audit preparation"]
+      title: "AI Fund OS Implementation",
+      description: "We build operational workflows for sourcing, scoring, memo generation, founder tracking, portfolio monitoring, and LP reporting.",
+      deliverables: ["Deal-flow database", "AI memo workflow", "IC dashboard", "Reporting templates"],
     },
     {
-      title: "Cross-border Expansion",
-      description: "Market entry strategy for MENA, US, EU, and RU jurisdictions.",
-      deliverables: ["Market analysis", "Legal structure design", "Vendor selection"]
-    }
+      title: "Venture Due Diligence",
+      description: "We run evidence-based diligence for founders, CVC targets, co-investments, and cross-border commercialization opportunities.",
+      deliverables: ["Founder assessment", "Market memo", "Technical review", "Risk register"],
+    },
+  ];
+
+  const process = [
+    { stage: "01", title: "Mandate", duration: "1–2 weeks", detail: "Define capital, governance, geography, thesis, and decision rights." },
+    { stage: "02", title: "Setup", duration: "2–6 weeks", detail: "Build operating model, data room, reporting, and legal coordination path." },
+    { stage: "03", title: "Pipeline", duration: "4–8 weeks", detail: "Source, screen, and prioritize founders or targets for the first IC." },
+    { stage: "04", title: "Execution", duration: "Ongoing", detail: "Run IC, diligence, portfolio support, reporting, and follow-on workflows." },
   ];
 
   return (
     <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
-        {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,31 +49,30 @@ export function Advisory() {
               <div className="inline-flex items-center gap-2 mb-5">
                 <div className="w-1.5 h-1.5 rounded-full bg-foreground/70" />
                 <span className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light uppercase tracking-wider">
-                  Primary Focus
+                  Advisory & venture operations
                 </span>
               </div>
-              
+
               <h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">
-                Advisory for teams that need proof — not promises
+                We turn venture ambition into an operating system
               </h1>
-              
-              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-2xl mb-8 sm:mb-10">
-                Stage-gated engagements designed for family offices, PE firms, and C-suites requiring evidence-based transformation and due diligence.
+
+              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">
+                maksat.PRO works with corporates, family offices, LPs, and founders to design CVC programs, launch fund structures, build AI-enabled venture workflows, and execute stage-gated due diligence.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <PillButton variant="primary" className="w-full sm:w-auto justify-center">
-                  Book discovery call
+                  Build a mandate
                 </PillButton>
                 <PillButton variant="secondary" className="w-full sm:w-auto justify-center">
-                  Download case studies
+                  Review platform scope
                 </PillButton>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Capabilities Grid */}
         <section className="mb-16 sm:mb-20 lg:mb-24">
           <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">
             Core Capabilities
@@ -89,7 +94,7 @@ export function Advisory() {
                 <p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed mb-6">
                   {capability.description}
                 </p>
-                
+
                 <div className="space-y-2">
                   <div className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider mb-3">
                     Typical Deliverables
@@ -108,7 +113,6 @@ export function Advisory() {
           </div>
         </section>
 
-        {/* Process */}
         <section className="mb-16 sm:mb-20 lg:mb-24">
           <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">
             Stage-Gated Process
@@ -116,12 +120,7 @@ export function Advisory() {
 
           <div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {[
-                { stage: "01", title: "Discovery", duration: "2-3 weeks" },
-                { stage: "02", title: "Assessment", duration: "4-6 weeks" },
-                { stage: "03", title: "Design", duration: "6-8 weeks" },
-                { stage: "04", title: "Implementation", duration: "Ongoing" }
-              ].map((phase, index) => (
+              {process.map((phase, index) => (
                 <div key={phase.stage}>
                   <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-2">
                     Stage {phase.stage}
@@ -129,8 +128,11 @@ export function Advisory() {
                   <h3 className="text-[18px] sm:text-[20px] font-light tracking-tight text-foreground/85 mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light">
+                  <p className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light mb-3">
                     {phase.duration}
+                  </p>
+                  <p className="text-[12px] sm:text-[13px] text-muted-foreground/55 font-light leading-relaxed">
+                    {phase.detail}
                   </p>
                   {index < 3 && (
                     <div className="mt-4 h-[1px] bg-gradient-to-r from-white/10 to-transparent" />
@@ -141,20 +143,19 @@ export function Advisory() {
           </div>
         </section>
 
-        {/* Geography Focus */}
         <section>
           <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-6 sm:mb-8">
-            Geographic Coverage
+            Geographic Corridors
           </h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { region: "MENA", priority: "Primary", description: "UAE, KSA, Qatar" },
-              { region: "United States", priority: "Secondary", description: "West Coast focus" },
-              { region: "EU", priority: "Tertiary", description: "Select markets" },
-              { region: "Russia", priority: "Select", description: "On request" }
+              { region: "CIS", priority: "Source", description: "Technical founders and overlooked venture assets" },
+              { region: "MENA", priority: "Launch", description: "Corporate demand, family offices, and market entry" },
+              { region: "United States", priority: "Scale", description: "Accelerators, venture networks, and commercialization" },
+              { region: "EU", priority: "Bridge", description: "Compliance, market access, and strategic partnerships" },
             ].map((geo) => (
-              <div 
+              <div
                 key={geo.region}
                 className="p-5 sm:p-6 rounded-[18px] sm:rounded-[20px] bg-white/[0.02] border border-white/[0.04]"
               >
