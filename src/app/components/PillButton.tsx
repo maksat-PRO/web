@@ -21,7 +21,7 @@ const ctaRoutes: Record<string, string> = {
   "Request LP materials": "/contact?interest=lp-materials",
   "Build a mandate": "/contact?interest=advisory",
   "Review platform scope": "/platform",
-  "Submit your deck": "/founders#founder-application",
+  "Submit your deck": "/founders",
   "Start CVC launch sprint": "/contact?interest=cvc",
 };
 
