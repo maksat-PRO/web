@@ -48,7 +48,7 @@ export function Header() {
     { to: "/platform", label: "Platform" },
     { to: "/cvc", label: "CVC" },
     { to: "/fund", label: "Fund" },
-    { to: "/insights", label: "Insights" },
+    { to: "/cases", label: "Cases" },
     { to: "/trust-center", label: "Trust" },
     { to: "/contact", label: "Contact" },
   ];
