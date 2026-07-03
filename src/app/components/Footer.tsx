@@ -11,6 +11,7 @@ export function Footer() {
   ];
 
   const resourceLinks = [
+    { to: "/data-room", label: "Data Room" },
     { to: "/cases", label: "Cases" },
     { to: "/insights", label: "Insights" },
   ];
