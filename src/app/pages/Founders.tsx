@@ -1,0 +1,117 @@
+import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import { Link } from "react-router";
+import { motion } from "motion/react";
+import { PillButton } from "../components/PillButton";
+import { DiagonalShards } from "../components/DiagonalShards";
+
+export function Founders() {
+  const [form, setForm] = useState({ companyName: "", founderName: "", email: "", country: "", sector: "", stage: "", traction: "", priorExit: "", targetGeography: "", need: "", deckLink: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const readinessSteps = [
+    { stage: "01", title: "Founder & Company Diagnostic", description: "Product, team, cap table, traction, legal structure, capital-source story, and investor-facing risks." },
+    { stage: "02", title: "Investment Packaging", description: "Deck, data room, financial model, traction narrative, use of funds, and investor-grade memo logic." },
+    { stage: "03", title: "Market Entry Strategy", description: "MENA, US, and EU positioning, customer segments, pilot strategy, partner map, and regulatory constraints." },
+    { stage: "04", title: "Fundraising Readiness", description: "Investor memo, target investor list, warm intro strategy, diligence Q&A, and follow-on capital narrative." },
+    { stage: "05", title: "Exit Readiness from Day One", description: "Strategic buyer map, next-round logic, acquisition narratives, and the proof needed for a credible exit path." },
+  ];
+
+  const founderProfile = ["Technical founder or team with deep domain expertise", "Prior exit, strong local business, or hard-earned unfair insight", "Product that can scale outside the local market", "Evidence of demand: revenue, pilots, LOIs, or strategic pull", "Clean or cleanable legal, cap table, and capital-source story", "Willingness to operate transparently and internationally"];
+  const founderGets = ["Investment readiness audit", "Data room preparation", "Investor-grade deck and memo", "Access to CVC pilots and strategic customers", "Warm-intro path to funds, accelerators, and co-investors", "Market entry support in MENA, US, and EU", "Technical and product due diligence preparation", "Follow-on fundraising support", "Exit preparation"];
+  const needs = ["Capital", "CVC pilot", "Market entry", "Fundraising", "Packaging", "Strategic partnership"];
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (status !== "idle") { setStatus("idle"); setErrorMessage(""); }
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setErrorMessage("");
+
+    const message = [
+      "Founder application / submit deck", "",
+      `Company name: ${form.companyName || "-"}`,
+      `Founder name: ${form.founderName || "-"}`,
+      `Country / current market: ${form.country || "-"}`,
+      `Sector: ${form.sector || "-"}`,
+      `Stage: ${form.stage || "-"}`,
+      `Revenue / pilots / traction: ${form.traction || "-"}`,
+      `Prior exit: ${form.priorExit || "-"}`,
+      `Target geography: ${form.targetGeography || "-"}`,
+      `Need: ${form.need || "-"}`,
+      `Deck link: ${form.deckLink || "-"}`, "", "Additional message:", form.message || "-",
+    ].join("\n");
+
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ firstName: form.founderName, lastName: form.companyName, email: form.email, interest: "founder", message }) });
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(typeof data?.message === "string" ? data.message : "Something went wrong.");
+      }
+      setStatus("success");
+      setForm({ companyName: "", founderName: "", email: "", country: "", sector: "", stage: "", traction: "", priorExit: "", targetGeography: "", need: "", deckLink: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong.");
+    }
+  };
+
+  return (
+    <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8 lg:px-12">
+      <div className="max-w-[1200px] mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-16 sm:mb-20 lg:mb-24">
+          <div className="relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#1a1d26]/70 via-[#12141a]/85 to-[#1a1d26]/70 border border-white/[0.06] backdrop-blur-2xl overflow-hidden">
+            <DiagonalShards />
+            <div className="relative px-6 sm:px-10 lg:px-12 py-10 sm:py-12">
+              <div className="inline-flex items-center gap-2 mb-5"><div className="w-1.5 h-1.5 rounded-full bg-foreground/70" /><span className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light uppercase tracking-wider">For founders and projects</span></div>
+              <h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">We help technical founders become globally investable</h1>
+              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">You may have a strong product, team, and local traction. International investors still need clean packaging, compliance discipline, a credible story, a complete data room, market entry logic, and trusted access. maksat.PRO helps founders cross that gap.</p>
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4"><PillButton variant="primary" className="w-full sm:w-auto justify-center">Submit your deck</PillButton><Link to="/cases" className="text-[13px] text-muted-foreground/60 hover:text-foreground/85 transition-colors">See proof patterns →</Link></div>
+            </div>
+          </div>
+        </motion.div>
+
+        <section className="mb-16 sm:mb-20 lg:mb-24">
+          <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">Founder Readiness Program</h2>
+          <div className="space-y-4 sm:space-y-5">{readinessSteps.map((step, index) => <motion.div key={step.stage} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-8"><div className="md:col-span-2 text-[12px] text-muted-foreground/42 font-light uppercase tracking-wider">Stage {step.stage}</div><div className="md:col-span-4 text-[20px] sm:text-[24px] text-foreground/90 font-light tracking-tight">{step.title}</div><div className="md:col-span-6 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{step.description}</div></motion.div>)}</div>
+        </section>
+
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16 sm:mb-20 lg:mb-24">
+          <div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-8"><h2 className="text-[24px] sm:text-[30px] font-light tracking-tight text-foreground/90 mb-6">What We Look For</h2><div className="space-y-3">{founderProfile.map((item) => <div key={item} className="flex gap-3 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/45" /><span>{item}</span></div>)}</div></div>
+          <div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-8"><h2 className="text-[24px] sm:text-[30px] font-light tracking-tight text-foreground/90 mb-6">What Founders Get</h2><div className="space-y-3">{founderGets.map((item) => <div key={item} className="flex gap-3 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/45" /><span>{item}</span></div>)}</div></div>
+        </section>
+
+        <section className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10">
+          <div className="max-w-[760px] mx-auto">
+            <h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mb-4 text-center">Founder Application / Submit Deck</h2>
+            <p className="text-[13px] sm:text-[15px] text-muted-foreground/65 font-light leading-relaxed text-center mb-8">Share enough signal for an initial review. A deck link is enough; Google Drive, Dropbox, Notion, or data room links work best.</p>
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input required name="companyName" value={form.companyName} onChange={handleChange} placeholder="Company name" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input required name="founderName" value={form.founderName} onChange={handleChange} placeholder="Founder name" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input required type="email" name="email" value={form.email} onChange={handleChange} placeholder="Email" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input name="country" value={form.country} onChange={handleChange} placeholder="Country / current market" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input name="sector" value={form.sector} onChange={handleChange} placeholder="Sector" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input name="stage" value={form.stage} onChange={handleChange} placeholder="Stage" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <input name="traction" value={form.traction} onChange={handleChange} placeholder="Revenue / pilots / traction" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <select name="priorExit" value={form.priorExit} onChange={handleChange} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none"><option value="">Prior exit?</option><option value="yes">Yes</option><option value="no">No</option><option value="partial">Partial / secondary / asset sale</option></select>
+                <input name="targetGeography" value={form.targetGeography} onChange={handleChange} placeholder="Target geography" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+                <select name="need" value={form.need} onChange={handleChange} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none"><option value="">What do you need?</option>{needs.map((need) => <option key={need} value={need}>{need}</option>)}</select>
+              </div>
+              <input name="deckLink" value={form.deckLink} onChange={handleChange} placeholder="Deck upload or link" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none" />
+              <textarea name="message" rows={5} value={form.message} onChange={handleChange} placeholder="Anything else we should know?" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-[13px] text-foreground/90 font-light outline-none resize-none" />
+              <div className="text-center"><PillButton variant="primary" type="submit" disabled={status === "sending"} className="w-full sm:w-auto justify-center">{status === "sending" ? "Sending..." : "Submit Founder Application"}</PillButton></div>
+              <div className="min-h-[20px] text-center" aria-live="polite">{status === "success" && <p className="text-[12px] text-foreground/80 font-light">Thanks — your founder application has been sent.</p>}{status === "error" && <p className="text-[12px] text-red-400/90 font-light">{errorMessage || "We couldn’t send your application. Please try again."}</p>}</div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
