@@ -1,13 +1,35 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ScrollProgress } from "./ScrollProgress";
+import { PageSignature } from "./PageSignature";
+
+const classForPath = (path: string) => {
+  if (path === "/") return "route-home";
+  if (path === "/lps") return "route-lps";
+  if (path === "/founders") return "route-founders";
+  if (path === "/platform") return "route-platform";
+  if (path === "/cvc") return "route-cvc";
+  if (path === "/fund") return "route-fund";
+  if (path === "/data-room") return "route-data-room";
+  if (path === "/founder-readiness-score") return "route-founder-score";
+  if (path === "/cvc-launch-pack") return "route-cvc-pack";
+  if (path === "/cases") return "route-cases";
+  if (path === "/insights") return "route-insights";
+  if (path === "/trust-center") return "route-trust";
+  if (path === "/contact") return "route-contact";
+  return "route-default";
+};
 
 export function Root() {
+  const location = useLocation();
+  const routeClass = classForPath(location.pathname);
+
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0" style={{ background: "var(--gradient-bg)" }} />
+        <PageSignature />
         <div className="absolute inset-0 bay-noise opacity-80" />
         <div
           className="absolute -top-56 left-1/2 h-[620px] w-[980px] -translate-x-1/2 opacity-80 blur-3xl"
@@ -20,7 +42,7 @@ export function Root() {
       </div>
       <ScrollProgress />
       <Header />
-      <main className="flex-1 relative z-10">
+      <main className={`flex-1 relative z-10 ${routeClass}`}>
         <Outlet />
       </main>
       <Footer />
