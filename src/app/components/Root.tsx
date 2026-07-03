@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ScrollProgress } from "./ScrollProgress";
 import { PageSignature } from "./PageSignature";
+import { RouteArtwork } from "./RouteArtwork";
 
 const classForPath = (path: string) => {
   if (path === "/") return "route-home";
@@ -48,6 +49,7 @@ export function Root() {
       <ScrollProgress />
       <Header />
       <main className={`flex-1 relative z-10 ${routeClass}`}>
+        <RouteArtwork />
         <Outlet />
       </main>
       <Footer />
