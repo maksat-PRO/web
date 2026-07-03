@@ -20,7 +20,7 @@ export function Home() {
     { title: "Exit Readiness Sprint", duration: "Ongoing" },
   ];
   const lpOffers = [
-    { title: "DAO Fund Access", ticket: "$5K–$100K", structure: "Pooled access for smaller LPs" },
+    { title: "DAO Fund Access", ticket: "$10K–$100K", structure: "Pooled access for smaller LPs" },
     { title: "Custom CVC Program", ticket: "From $2M", structure: "Corporate venture mandate" },
     { title: "Classic VC Fund", ticket: "$500K–$2M", structure: "BVI fund with Delaware management company" },
     { title: "Dedicated Mono-LP Fund", ticket: "From $10M", structure: "Bespoke BVI fund for a single strategic LP" },
