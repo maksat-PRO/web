@@ -1,6 +1,7 @@
 import { useLocation } from "react-router";
 
 type ArtworkKind = "network" | "capital" | "stack" | "mission" | "passport" | "score" | "vault" | "proof" | "trust";
+type NodePoint = [string, number, number];
 
 const artworkByPath: Record<string, { kind: ArtworkKind; label: string }> = {
   "/": { kind: "network", label: "Venture Network Map" },
@@ -14,9 +15,7 @@ const artworkByPath: Record<string, { kind: ArtworkKind; label: string }> = {
   "/trust-center": { kind: "trust", label: "Trust Layer Map" },
 };
 
-const nodes = [
-  ["LPs", 35, 16], ["CVCs", 72, 25], ["Founders", 78, 68], ["Co-invest", 24, 72], ["Exits", 50, 86], ["Strategics", 18, 40]
-];
+const nodes: NodePoint[] = [["LPs", 35, 16], ["CVCs", 72, 25], ["Founders", 78, 68], ["Co-invest", 24, 72], ["Exits", 50, 86], ["Strategics", 18, 40]];
 const fundLayers = ["LPs", "Vehicles", "GP Platform", "Fund OS", "Founders", "Reporting"];
 const mission = ["Mandate", "Governance", "Budget", "Pipeline", "First IC"];
 const passport = ["Diagnostic", "Packaging", "Data Room", "Market Entry", "Fundraising", "Exit"];
@@ -27,7 +26,7 @@ function Badge({ text, x, y }: { text: string; x: number; y: number }) {
 }
 
 function Network() {
-  return <svg viewBox="0 0 320 240" className="h-full w-full"><defs><radialGradient id="g1"><stop offset="0" stopColor="rgba(125,178,255,.55)"/><stop offset="1" stopColor="rgba(125,178,255,0)"/></radialGradient></defs><circle cx="160" cy="120" r="42" fill="url(#g1)"/><circle cx="160" cy="120" r="31" fill="rgba(11,16,28,.72)" stroke="rgba(125,178,255,.35)"/><text x="160" y="116" textAnchor="middle" fill="rgba(255,255,255,.78)" fontSize="10">AI Fund</text><text x="160" y="130" textAnchor="middle" fill="rgba(255,255,255,.5)" fontSize="9">OS</text>{nodes.map(([n,x,y]) => <g key={n as string}><line x1="160" y1="120" x2={x as number*3.2} y2={y as number*2.4} stroke="rgba(125,178,255,.2)"/><Badge text={n as string} x={x as number*3.2} y={y as number*2.4}/></g>)}</svg>;
+  return <svg viewBox="0 0 320 240" className="h-full w-full"><defs><radialGradient id="networkGlow"><stop offset="0" stopColor="rgba(125,178,255,.55)"/><stop offset="1" stopColor="rgba(125,178,255,0)"/></radialGradient></defs><circle cx="160" cy="120" r="42" fill="url(#networkGlow)"/><circle cx="160" cy="120" r="31" fill="rgba(11,16,28,.72)" stroke="rgba(125,178,255,.35)"/><text x="160" y="116" textAnchor="middle" fill="rgba(255,255,255,.78)" fontSize="10">AI Fund</text><text x="160" y="130" textAnchor="middle" fill="rgba(255,255,255,.5)" fontSize="9">OS</text>{nodes.map(([name, x, y]) => { const sx = x * 3.2; const sy = y * 2.4; return <g key={name}><line x1="160" y1="120" x2={sx} y2={sy} stroke="rgba(125,178,255,.2)"/><Badge text={name} x={sx} y={sy}/></g>; })}</svg>;
 }
 
 function Capital() {
@@ -36,7 +35,7 @@ function Capital() {
 }
 
 function Stack() {
-  return <svg viewBox="0 0 320 240" className="h-full w-full">{fundLayers.map((l,i)=><g key={l} transform={`translate(${52+i*14} ${42+i*25})`}><rect width="190" height="30" rx="10" fill={`rgba(167,139,250,${.16-i*.012})`} stroke="rgba(255,255,255,.12)"/><text x="16" y="19" fill="rgba(255,255,255,.72)" fontSize="10">{l}</text></g>)}<path d="M250 70 C282 100 282 150 250 180" fill="none" stroke="rgba(251,191,36,.28)"/><circle cx="250" cy="70" r="5" fill="rgba(251,191,36,.55)"/><circle cx="250" cy="180" r="5" fill="rgba(251,191,36,.55)"/></svg>;
+  return <svg viewBox="0 0 320 240" className="h-full w-full">{fundLayers.map((l,i)=><g key={l} transform={`translate(${52+i*14} ${42+i*25})`}><rect width="190" height="30" rx="10" fill={`rgba(167,139,250,${0.16-i*0.012})`} stroke="rgba(255,255,255,.12)"/><text x="16" y="19" fill="rgba(255,255,255,.72)" fontSize="10">{l}</text></g>)}<path d="M250 70 C282 100 282 150 250 180" fill="none" stroke="rgba(251,191,36,.28)"/><circle cx="250" cy="70" r="5" fill="rgba(251,191,36,.55)"/><circle cx="250" cy="180" r="5" fill="rgba(251,191,36,.55)"/></svg>;
 }
 
 function Mission() {
@@ -48,8 +47,8 @@ function Passport() {
 }
 
 function Score() {
-  const bars = [["Founder", 86], ["Market", 78], ["Tech", 82], ["Compliance", 70], ["Exit", 84]];
-  return <svg viewBox="0 0 320 240" className="h-full w-full"><rect x="44" y="28" width="232" height="184" rx="24" fill="rgba(255,255,255,.045)" stroke="rgba(45,212,191,.2)"/><text x="68" y="58" fill="rgba(45,212,191,.72)" fontSize="10" letterSpacing="2">READINESS SCORE</text><text x="222" y="82" fill="rgba(255,255,255,.82)" fontSize="36" textAnchor="middle">84</text>{bars.map(([b,v],i)=><g key={b as string} transform={`translate(68 ${92+i*22})`}><text y="10" fill="rgba(255,255,255,.55)" fontSize="9">{b}</text><rect x="78" y="2" width="110" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="78" y="2" width={(v as number)*1.1} height="8" rx="4" fill="rgba(45,212,191,.45)"/></g>)}</svg>;
+  const bars: [string, number][] = [["Founder", 86], ["Market", 78], ["Tech", 82], ["Compliance", 70], ["Exit", 84]];
+  return <svg viewBox="0 0 320 240" className="h-full w-full"><rect x="44" y="28" width="232" height="184" rx="24" fill="rgba(255,255,255,.045)" stroke="rgba(45,212,191,.2)"/><text x="68" y="58" fill="rgba(45,212,191,.72)" fontSize="10" letterSpacing="2">READINESS SCORE</text><text x="222" y="82" fill="rgba(255,255,255,.82)" fontSize="36" textAnchor="middle">84</text>{bars.map(([b,v],i)=><g key={b} transform={`translate(68 ${92+i*22})`}><text y="10" fill="rgba(255,255,255,.55)" fontSize="9">{b}</text><rect x="78" y="2" width="110" height="8" rx="4" fill="rgba(255,255,255,.08)"/><rect x="78" y="2" width={v*1.1} height="8" rx="4" fill="rgba(45,212,191,.45)"/></g>)}</svg>;
 }
 
 function Vault() {
@@ -63,7 +62,7 @@ function Proof() {
 }
 
 function Trust() {
-  return <svg viewBox="0 0 320 240" className="h-full w-full"><circle cx="160" cy="120" r="38" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.25)"/><text x="160" y="124" textAnchor="middle" fill="rgba(255,255,255,.72)" fontSize="10">Trust Layer</text>{trust.map((t,i)=>{const a=(i/trust.length)*Math.PI*2-Math.PI/2; const x=160+Math.cos(a)*92; const y=120+Math.sin(a)*70; return <g key={t}><line x1="160" y1="120" x2={x} y2={y} stroke="rgba(34,197,94,.18)"/><Badge text={t} x={x} y={y}/></g>})}</svg>;
+  return <svg viewBox="0 0 320 240" className="h-full w-full"><circle cx="160" cy="120" r="38" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.25)"/><text x="160" y="124" textAnchor="middle" fill="rgba(255,255,255,.72)" fontSize="10">Trust Layer</text>{trust.map((t,i)=>{const a=(i/trust.length)*Math.PI*2-Math.PI/2; const x=160+Math.cos(a)*92; const y=120+Math.sin(a)*70; return <g key={t}><line x1="160" y1="120" x2={x} y2={y} stroke="rgba(34,197,94,.18)"/><Badge text={t} x={x} y={y}/></g>;})}</svg>;
 }
 
 function Drawing({ kind }: { kind: ArtworkKind }) {
@@ -83,7 +82,7 @@ export function RouteArtwork() {
   const config = artworkByPath[pathname];
   if (!config) return null;
   return (
-    <div className="route-artwork pointer-events-none absolute right-4 top-28 z-[1] hidden h-[260px] w-[360px] opacity-80 xl:block 2xl:right-[calc((100vw-1240px)/2)]" aria-hidden="true">
+    <div className="route-artwork pointer-events-none absolute right-4 top-28 z-[0] hidden h-[260px] w-[360px] opacity-70 xl:block 2xl:right-[calc((100vw-1240px)/2)]" aria-hidden="true">
       <div className="absolute inset-0 rounded-[32px] border border-white/[0.06] bg-background/20 shadow-[0_24px_90px_rgba(0,0,0,.28)] backdrop-blur-xl" />
       <div className="relative h-full w-full p-4">
         <div className="mb-1 pl-2 text-[10px] uppercase tracking-[0.24em] text-muted-foreground/45">{config.label}</div>
