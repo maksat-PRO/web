@@ -15,6 +15,7 @@ export function Footer() {
             <Link to="/cvc" className="hover:text-foreground/80 transition-colors">CVC</Link>
             <Link to="/cvc-launch-pack" className="hover:text-foreground/80 transition-colors">CVC Pack</Link>
             <Link to="/fund" className="hover:text-foreground/80 transition-colors">LP Offers</Link>
+            <Link to="/cases" className="hover:text-foreground/80 transition-colors">Cases</Link>
             <Link to="/insights" className="hover:text-foreground/80 transition-colors">Insights</Link>
             <Link to="/trust-center" className="hover:text-foreground/80 transition-colors">Trust Center</Link>
             <Link to="/privacy" className="hover:text-foreground/80 transition-colors">Privacy</Link>
