@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -24,6 +25,10 @@ const classForPath = (path: string) => {
 export function Root() {
   const location = useLocation();
   const routeClass = classForPath(location.pathname);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
