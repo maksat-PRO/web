@@ -1,6 +1,7 @@
 import { PillButton } from "../components/PillButton";
 import { ProofChip } from "../components/ProofChip";
 import { DiagonalShards } from "../components/DiagonalShards";
+import { DashboardPreview, ProgramTimeline, VentureOrbit } from "../components/DesignWidgets";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 
