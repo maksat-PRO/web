@@ -42,12 +42,73 @@
   min-height: 620px;
 }
 
+.route-founders > div > div > section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.route-founders > div > div > section:nth-of-type(2) > h2 {
+  position: sticky;
+  top: 112px;
+  min-height: 520px;
+  margin: 0;
+  padding: 32px;
+  border: 1px solid rgba(45, 212, 191, 0.14);
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(45, 212, 191, 0.08), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.34), 0 0 80px rgba(45, 212, 191, 0.07);
+}
+
+.route-founders > div > div > section:nth-of-type(2) > h2::before {
+  content: "GLOBAL PASSPORT";
+  display: block;
+  margin-bottom: 120px;
+  color: rgba(45, 212, 191, 0.42);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.route-founders > div > div > section:nth-of-type(2) > h2::after {
+  content: "Diagnostic → Packaging → Market entry → Fundraising → Exit map";
+  display: block;
+  margin-top: 30px;
+  color: rgba(154, 167, 186, 0.72);
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+.route-founders > div > div > section:nth-of-type(2) > div {
+  display: grid;
+  gap: 18px;
+}
+
+.route-founders > div > div > section:nth-of-type(2) > div > *:nth-child(even) {
+  transform: translateX(28px);
+}
+
 @media (max-width: 1100px) {
-  .route-lps > div > div > section:nth-of-type(4) {
+  .route-lps > div > div > section:nth-of-type(4),
+  .route-founders > div > div > section:nth-of-type(2) {
     display: block;
   }
 
-  .route-lps > div > div > section:nth-of-type(2) > div > * {
+  .route-lps > div > div > section:nth-of-type(2) > div > *,
+  .route-founders > div > div > section:nth-of-type(2) > div > * {
     transform: none !important;
+  }
+
+  .route-founders > div > div > section:nth-of-type(2) > h2 {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    margin-bottom: 24px;
+  }
+
+  .route-founders > div > div > section:nth-of-type(2) > h2::before {
+    margin-bottom: 24px;
   }
 }
