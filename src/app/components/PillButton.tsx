@@ -14,6 +14,17 @@ interface PillButtonProps {
   disabled?: boolean;
 }
 
+const ctaRoutes: Record<string, string> = {
+  "Start a conversation": "/contact",
+  "View LP offers": "/fund",
+  "Discuss allocation": "/contact?interest=lp",
+  "Request LP materials": "/contact?interest=lp-materials",
+  "Build a mandate": "/contact?interest=advisory",
+  "Review platform scope": "/platform",
+  "Submit your deck": "/founders#founder-application",
+  "Start CVC launch sprint": "/contact?interest=cvc",
+};
+
 export function PillButton({
   children,
   variant = "primary",
@@ -33,6 +44,8 @@ export function PillButton({
     ghost: "bg-transparent text-muted-foreground/70 hover:text-foreground/90 hover:bg-white/5",
   };
 
+  const inferredTo = !to && !href && !onClick && type === "button" && typeof children === "string" ? ctaRoutes[children] : undefined;
+  const targetTo = to ?? inferredTo;
   const classes = `${baseClasses} ${variantClasses[variant]} ${disabled ? "opacity-60 cursor-not-allowed pointer-events-none" : ""} ${className ?? ""}`;
 
   const content = (
@@ -42,10 +55,10 @@ export function PillButton({
     </>
   );
 
-  if (to && !disabled) {
+  if (targetTo && !disabled) {
     const MotionLink = motion(Link);
     return (
-      <MotionLink whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className={classes} to={to} onClick={onClick}>
+      <MotionLink whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className={classes} to={targetTo} onClick={onClick}>
         {content}
       </MotionLink>
     );
