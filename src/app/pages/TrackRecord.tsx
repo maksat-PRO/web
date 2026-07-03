@@ -60,7 +60,7 @@ export function TrackRecord() {
                 Built on delivery experience since 2016.
               </h1>
               <p className="text-[15px] sm:text-[17px] text-muted-foreground/68 font-light leading-relaxed max-w-3xl">
-                maksat.PRO was not created as a sterile AI landing page. The company started as a product engineering team and gradually evolved into a venture infrastructure platform for LPs, CVC programs, founders, data rooms, and AI-assisted operating workflows.
+                The company started as a product engineering team and gradually evolved into a venture infrastructure platform for LPs, CVC programs, founders, data rooms, and AI-assisted operating workflows.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-wrap gap-2 justify-start lg:justify-end">
