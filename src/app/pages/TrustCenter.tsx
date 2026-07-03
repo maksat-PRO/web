@@ -4,110 +4,24 @@ import { Shield, Database, Lock, FileCheck, Scale, AlertCircle } from "lucide-re
 import { DiagonalShards } from "../components/DiagonalShards";
 
 export function TrustCenter() {
+  const principles = ["Evidence over hype", "Compliance before capital", "Founder respect and direct feedback", "Long-term relationships over transactions", "Stage-gated execution", "Transparent reporting", "No shortcuts around legal structure, sanctions, KYC/AML, or capital-source review"];
   const sections = [
-    {
-      icon: Database,
-      title: "Data Handling",
-      items: [
-        { label: "Access Controls", value: "Role-based access with audit trails" },
-        { label: "Data Retention", value: "Client-configurable; default retention defined by engagement or fund documents" },
-        { label: "Data Location", value: "EU/US regions per contract where applicable" },
-        { label: "Founder Data Handling", value: "Founder submissions, decks, data rooms, and diligence notes are handled as confidential review materials" },
-        { label: "Client Data Deletion", value: "On request, subject to legal, regulatory, and fund recordkeeping obligations" }
-      ]
-    },
-    {
-      icon: Shield,
-      title: "Security Posture",
-      items: [
-        { label: "SDLC Security", value: "Code review, dependency scanning, and controlled production changes" },
-        { label: "Vulnerability Management", value: "Continuous monitoring and periodic external review as the platform scales" },
-        { label: "Incident Response", value: "Security contact, internal escalation, and notification workflow" },
-        { label: "Employee / Contractor Access", value: "Least-privilege access with offboarding controls" },
-        { label: "Security Training", value: "Onboarding and refresher training for team members with data access" }
-      ]
-    },
-    {
-      icon: Lock,
-      title: "Investment Trust Center",
-      items: [
-        { label: "KYC / AML Policy", value: "Investor and counterparty onboarding is subject to KYC, AML, and eligibility review" },
-        { label: "Sanctions Screening", value: "Sanctions, restricted-party, and jurisdictional screening before formal participation" },
-        { label: "Source-of-Funds Process", value: "Capital-source and wealth-origin review where required by structure, counsel, administrator, or banking partner" },
-        { label: "Conflict Management", value: "Conflicts across CVCs, funds, DAO-style access, SPVs, and mono-LP vehicles are identified and documented" },
-        { label: "Allocation Policy", value: "Deal allocation and co-investment access are governed by documented eligibility, capacity, and conflict rules" },
-        { label: "Co-Investment Policy", value: "Co-investments may be offered to eligible LPs subject to available capacity and compliance approval" }
-      ]
-    },
-    {
-      icon: FileCheck,
-      title: "Venture Documentation Standards",
-      items: [
-        { label: "Data Room Standards", value: "Legal, tax, compliance, KYC/AML, fund, and portfolio materials organized by audience and access level" },
-        { label: "IC Documentation", value: "Investment memos, decision logs, risk registers, conditions precedent, and follow-up actions archived" },
-        { label: "LP Reporting Standards", value: "Quarterly reports, portfolio updates, capital account statements, and annual review package" },
-        { label: "Founder Diligence Pack", value: "Founder, product, traction, cap table, legal, market, technical, and fundraising-readiness review" },
-        { label: "Change Control", value: "Formal approval for material scope, governance, or structure changes" }
-      ]
-    },
-    {
-      icon: Scale,
-      title: "Fund Governance & Ethics",
-      items: [
-        { label: "Portfolio Conflicts", value: "Disclosed pre-investment where relevant; consent or recusal mechanics applied when needed" },
-        { label: "Advisory / Fund Firewall", value: "Information barriers and engagement-specific access controls where advisory and fund work overlap" },
-        { label: "Side Letters", value: "Special rights documented and managed under fund documents and LP consent rules" },
-        { label: "LPAC / Advisory Committee", value: "Available for larger structures and mono-LP mandates where appropriate" },
-        { label: "Fund Reporting", value: "Quarterly reporting cadence and annual fund review, subject to final documents" }
-      ]
-    },
-    {
-      icon: AlertCircle,
-      title: "Structure-Specific Legal Notice",
-      items: [
-        { label: "DAO-style Access", value: "Community or pooled access is subject to eligibility, local restrictions, and final wrapper design" },
-        { label: "CVC Program", value: "Corporate venture mandates are governed by dedicated service, governance, and investment documents" },
-        { label: "BVI Fund", value: "Any BVI fund participation is subject to final offering documents, administrator, counsel, banking, and investor onboarding" },
-        { label: "Mono-LP Fund", value: "Dedicated vehicles are bespoke and subject to structure-specific legal, tax, compliance, and governance review" },
-        { label: "Contact", value: "info@maksat.pro" }
-      ]
-    }
+    { icon: Database, title: "Data Handling", items: [{ label: "Access Controls", value: "Role-based access with audit trails" }, { label: "Data Retention", value: "Client-configurable; default retention defined by engagement or fund documents" }, { label: "Data Location", value: "EU/US regions per contract where applicable" }, { label: "Founder Data Handling", value: "Founder submissions, decks, data rooms, and diligence notes are handled as confidential review materials" }, { label: "Client Data Deletion", value: "On request, subject to legal, regulatory, and fund recordkeeping obligations" }] },
+    { icon: Shield, title: "Security Posture", items: [{ label: "SDLC Security", value: "Code review, dependency scanning, and controlled production changes" }, { label: "Vulnerability Management", value: "Continuous monitoring and periodic external review as the platform scales" }, { label: "Incident Response", value: "Security contact, internal escalation, and notification workflow" }, { label: "Employee / Contractor Access", value: "Least-privilege access with offboarding controls" }, { label: "Security Training", value: "Onboarding and refresher training for team members with data access" }] },
+    { icon: Lock, title: "Investment Trust Center", items: [{ label: "KYC / AML Policy", value: "Investor and counterparty onboarding is subject to KYC, AML, and eligibility review" }, { label: "Sanctions Screening", value: "Sanctions, restricted-party, and jurisdictional screening before formal participation" }, { label: "Source-of-Funds Process", value: "Capital-source and wealth-origin review where required by structure, counsel, administrator, or banking partner" }, { label: "Conflict Management", value: "Conflicts across CVCs, funds, DAO-style access, SPVs, and mono-LP vehicles are identified and documented" }, { label: "Allocation Policy", value: "Deal allocation and co-investment access are governed by documented eligibility, capacity, and conflict rules" }, { label: "Co-Investment Policy", value: "Co-investments may be offered to eligible LPs subject to available capacity and compliance approval" }] },
+    { icon: FileCheck, title: "Venture Documentation Standards", items: [{ label: "Data Room Standards", value: "Legal, tax, compliance, KYC/AML, fund, and portfolio materials organized by audience and access level" }, { label: "IC Documentation", value: "Investment memos, decision logs, risk registers, conditions precedent, and follow-up actions archived" }, { label: "LP Reporting Standards", value: "Quarterly reports, portfolio updates, capital account statements, and annual review package" }, { label: "Founder Diligence Pack", value: "Founder, product, traction, cap table, legal, market, technical, and fundraising-readiness review" }, { label: "Change Control", value: "Formal approval for material scope, governance, or structure changes" }] },
+    { icon: Scale, title: "Fund Governance & Ethics", items: [{ label: "Portfolio Conflicts", value: "Disclosed pre-investment where relevant; consent or recusal mechanics applied when needed" }, { label: "Advisory / Fund Firewall", value: "Information barriers and engagement-specific access controls where advisory and fund work overlap" }, { label: "Side Letters", value: "Special rights documented and managed under fund documents and LP consent rules" }, { label: "LPAC / Advisory Committee", value: "Available for larger structures and mono-LP mandates where appropriate" }, { label: "Fund Reporting", value: "Quarterly reporting cadence and annual fund review, subject to final documents" }] },
+    { icon: AlertCircle, title: "Structure-Specific Legal Notice", items: [{ label: "DAO-style Access", value: "Community or pooled access is subject to eligibility, local restrictions, and final wrapper design" }, { label: "CVC Program", value: "Corporate venture mandates are governed by dedicated service, governance, and investment documents" }, { label: "BVI Fund", value: "Any BVI fund participation is subject to final offering documents, administrator, counsel, banking, and investor onboarding" }, { label: "Mono-LP Fund", value: "Dedicated vehicles are bespoke and subject to structure-specific legal, tax, compliance, and governance review" }, { label: "Contact", value: "info@maksat.pro" }] }
   ];
 
   return (
     <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-16 sm:mb-20 lg:mb-24">
-          <div className="relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#1a1d26]/70 via-[#12141a]/85 to-[#1a1d26]/70 border border-white/[0.06] backdrop-blur-2xl overflow-hidden">
-            <DiagonalShards />
-            <div className="relative px-6 sm:px-10 lg:px-12 py-10 sm:py-12">
-              <h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">Trust Center</h1>
-              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8">Transparent documentation of our operational, security, compliance, and investment governance standards. Updated quarterly.</p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /><span className="text-[12px] text-blue-400/90 font-light">Last updated: July 2026</span></div>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="space-y-8 sm:space-y-12">
-          {sections.map((section, sectionIndex) => (
-            <motion.section key={section.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: sectionIndex * 0.05 }} className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10">
-              <div className="flex items-center gap-4 mb-8"><div className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center"><section.icon className="w-5 h-5 text-foreground/60" strokeWidth={1.5} /></div><h2 className="text-[22px] sm:text-[28px] lg:text-[32px] font-light tracking-tight text-foreground/90">{section.title}</h2></div>
-              <div className="space-y-0 border-t border-white/[0.04]">
-                {section.items.map((item, itemIndex) => <div key={item.label} className={`grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 md:gap-12 py-5 ${itemIndex !== section.items.length - 1 ? "border-b border-white/[0.04]" : ""}`}><div className="text-[13px] sm:text-[14px] lg:text-[15px] text-muted-foreground/70 font-light">{item.label}</div><div className="text-[13px] sm:text-[14px] lg:text-[15px] text-foreground/85 font-light">{item.value}</div></div>)}
-              </div>
-            </motion.section>
-          ))}
-        </div>
-
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-[22px] sm:rounded-[24px] bg-white/[0.02] border border-white/[0.04]">
-          <h3 className="text-[16px] sm:text-[18px] font-light tracking-tight text-foreground/85 mb-3">Questions or Audit Requests</h3>
-          <p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed mb-4">For security questionnaires, data room requests, investment governance questions, or custom compliance documentation, contact our team.</p>
-          <a href="mailto:info@maksat.pro" className="text-[13px] sm:text-[14px] text-foreground/80 hover:text-foreground font-light transition-colors">info@maksat.pro →</a>
-        </motion.div>
-
-        <div className="mt-10 sm:mt-12 text-center">
-          <p className="text-[10px] sm:text-[11px] text-muted-foreground/40 font-light leading-relaxed max-w-3xl mx-auto"><span className="font-semibold">Trust Center Notice</span><br />This Trust Center is provided for informational purposes only and does not create contractual, fiduciary, investment, legal, tax, or compliance obligations. Any binding commitments are set out solely in duly executed agreements, offering documents, service agreements, fund documents, and related schedules. See our <Link to="/terms" className="text-foreground/60 hover:text-foreground/80 transition-colors">Terms</Link> and <Link to="/privacy" className="text-foreground/60 hover:text-foreground/80 transition-colors">Privacy Policy</Link>.</p>
-        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-16 sm:mb-20 lg:mb-24"><div className="relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#1a1d26]/70 via-[#12141a]/85 to-[#1a1d26]/70 border border-white/[0.06] backdrop-blur-2xl overflow-hidden"><DiagonalShards /><div className="relative px-6 sm:px-10 lg:px-12 py-10 sm:py-12"><h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">Trust Center</h1><p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8">Transparent documentation of our operational, security, compliance, and investment governance standards. Updated quarterly.</p><div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20"><div className="w-1.5 h-1.5 rounded-full bg-blue-400" /><span className="text-[12px] text-blue-400/90 font-light">Last updated: July 2026</span></div></div></div></motion.div>
+        <section className="mb-8 sm:mb-12 rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10"><h2 className="text-[22px] sm:text-[28px] lg:text-[32px] font-light tracking-tight text-foreground/90 mb-6">Operating Principles</h2><div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">{principles.map((item) => <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{item}</div>)}</div></section>
+        <div className="space-y-8 sm:space-y-12">{sections.map((section, sectionIndex) => <motion.section key={section.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: sectionIndex * 0.05 }} className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10"><div className="flex items-center gap-4 mb-8"><div className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center"><section.icon className="w-5 h-5 text-foreground/60" strokeWidth={1.5} /></div><h2 className="text-[22px] sm:text-[28px] lg:text-[32px] font-light tracking-tight text-foreground/90">{section.title}</h2></div><div className="space-y-0 border-t border-white/[0.04]">{section.items.map((item, itemIndex) => <div key={item.label} className={`grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 md:gap-12 py-5 ${itemIndex !== section.items.length - 1 ? "border-b border-white/[0.04]" : ""}`}><div className="text-[13px] sm:text-[14px] lg:text-[15px] text-muted-foreground/70 font-light">{item.label}</div><div className="text-[13px] sm:text-[14px] lg:text-[15px] text-foreground/85 font-light">{item.value}</div></div>)}</div></motion.section>)}</div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-12 sm:mt-16 p-6 sm:p-8 rounded-[22px] sm:rounded-[24px] bg-white/[0.02] border border-white/[0.04]"><h3 className="text-[16px] sm:text-[18px] font-light tracking-tight text-foreground/85 mb-3">Questions or Audit Requests</h3><p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed mb-4">For security questionnaires, data room requests, investment governance questions, or custom compliance documentation, contact our team.</p><a href="mailto:info@maksat.pro" className="text-[13px] sm:text-[14px] text-foreground/80 hover:text-foreground font-light transition-colors">info@maksat.pro →</a></motion.div>
+        <div className="mt-10 sm:mt-12 text-center"><p className="text-[10px] sm:text-[11px] text-muted-foreground/40 font-light leading-relaxed max-w-3xl mx-auto"><span className="font-semibold">Trust Center Notice</span><br />This Trust Center is provided for informational purposes only and does not create contractual, fiduciary, investment, legal, tax, or compliance obligations. Any binding commitments are set out solely in duly executed agreements, offering documents, service agreements, fund documents, and related schedules. See our <Link to="/terms" className="text-foreground/60 hover:text-foreground/80 transition-colors">Terms</Link> and <Link to="/privacy" className="text-foreground/60 hover:text-foreground/80 transition-colors">Privacy Policy</Link>.</p></div>
       </div>
     </div>
   );
