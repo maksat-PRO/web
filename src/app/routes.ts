@@ -6,6 +6,7 @@ import { Fund } from "./pages/Fund";
 import { LPs } from "./pages/LPs";
 import { Founders } from "./pages/Founders";
 import { Platform } from "./pages/Platform";
+import { CVC } from "./pages/CVC";
 import { TrustCenter } from "./pages/TrustCenter";
 import { Cases } from "./pages/Cases";
 import { Contact } from "./pages/Contact";
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
       { path: "lps", Component: LPs },
       { path: "founders", Component: Founders },
       { path: "platform", Component: Platform },
+      { path: "cvc", Component: CVC },
       { path: "trust-center", Component: TrustCenter },
       { path: "cases", Component: Cases },
       { path: "contact", Component: Contact },
