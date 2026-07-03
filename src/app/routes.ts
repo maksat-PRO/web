@@ -7,6 +7,10 @@ import { LPs } from "./pages/LPs";
 import { Founders } from "./pages/Founders";
 import { Platform } from "./pages/Platform";
 import { CVC } from "./pages/CVC";
+import { DataRoom } from "./pages/DataRoom";
+import { FounderReadinessScore } from "./pages/FounderReadinessScore";
+import { CVCLaunchPack } from "./pages/CVCLaunchPack";
+import { Insights } from "./pages/Insights";
 import { TrustCenter } from "./pages/TrustCenter";
 import { Cases } from "./pages/Cases";
 import { Contact } from "./pages/Contact";
@@ -25,6 +29,10 @@ export const router = createBrowserRouter([
       { path: "founders", Component: Founders },
       { path: "platform", Component: Platform },
       { path: "cvc", Component: CVC },
+      { path: "data-room", Component: DataRoom },
+      { path: "founder-readiness-score", Component: FounderReadinessScore },
+      { path: "cvc-launch-pack", Component: CVCLaunchPack },
+      { path: "insights", Component: Insights },
       { path: "trust-center", Component: TrustCenter },
       { path: "cases", Component: Cases },
       { path: "contact", Component: Contact },

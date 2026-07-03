@@ -8,10 +8,15 @@ export function Footer() {
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-3"><span className="text-[15px] tracking-tight text-foreground/70">maksat.PRO</span><span className="text-[12px] text-muted-foreground/50 font-light">Venture platform · CVC · Funds · AI Fund OS</span></div>
           <div className="flex flex-wrap items-center gap-4 text-[12px] sm:text-[13px] text-muted-foreground/60">
             <Link to="/lps" className="hover:text-foreground/80 transition-colors">LPs</Link>
+            <Link to="/data-room" className="hover:text-foreground/80 transition-colors">Data Room</Link>
             <Link to="/founders" className="hover:text-foreground/80 transition-colors">Founders</Link>
+            <Link to="/founder-readiness-score" className="hover:text-foreground/80 transition-colors">Founder Score</Link>
             <Link to="/platform" className="hover:text-foreground/80 transition-colors">Platform</Link>
             <Link to="/cvc" className="hover:text-foreground/80 transition-colors">CVC</Link>
+            <Link to="/cvc-launch-pack" className="hover:text-foreground/80 transition-colors">CVC Pack</Link>
             <Link to="/fund" className="hover:text-foreground/80 transition-colors">LP Offers</Link>
+            <Link to="/cases" className="hover:text-foreground/80 transition-colors">Cases</Link>
+            <Link to="/insights" className="hover:text-foreground/80 transition-colors">Insights</Link>
             <Link to="/trust-center" className="hover:text-foreground/80 transition-colors">Trust Center</Link>
             <Link to="/privacy" className="hover:text-foreground/80 transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground/80 transition-colors">Terms</Link>
