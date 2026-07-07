@@ -1,1 +1,0 @@
-maksat.PRO positioning refresh
