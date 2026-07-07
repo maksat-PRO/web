@@ -67,10 +67,10 @@ export function Home() {
                   <div className="w-1.5 h-1.5 rounded-full bg-foreground/70" />
                   <span className="text-[12px] sm:text-[13px] text-muted-foreground/70 font-light uppercase tracking-wider">Venture office for LPs, family offices, and corporate groups</span>
                 </div>
-                <h1 className="text-[36px] sm:text-[44px] lg:text-[58px] leading-[1.08] tracking-[-0.03em] mb-5 sm:mb-6">
-                  <span className="text-foreground/95 font-light block">Build a venture portfolio</span>
-                  <span className="text-foreground/95 font-light block">before committing to</span>
-                  <span className="text-foreground/95 font-light block">a full fund structure</span>
+                <h1 className="text-[30px] sm:text-[38px] lg:text-[48px] leading-[1.12] tracking-[-0.03em] mb-5 sm:mb-6">
+                  <span className="text-foreground/95 font-light block">maksat.PRO helps corporations, family offices, and LPs</span>
+                  <span className="text-foreground/95 font-light block">launch venture programs, build startup deal flow,</span>
+                  <span className="text-foreground/95 font-light block">run due diligence, and structure private venture portfolios before setting up a full fund.</span>
                 </h1>
                 <p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light tracking-tight mb-8 sm:mb-10 leading-relaxed max-w-2xl">maksat.PRO helps LPs move from interest in venture to an executable portfolio mandate: thesis design, startup scouting, due diligence, IC materials, data room, reporting, and a legally reviewed path toward SPVs, CVC programs, or future fund vehicles.</p>
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 sm:mb-14">
