@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /internal/
+Disallow: /private/
+Disallow: /dashboard/
+
+# Public website only. Development, staging, GitLab, and product-test subdomains must be protected separately at the host / DNS / server level.
