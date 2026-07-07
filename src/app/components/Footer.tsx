@@ -3,14 +3,15 @@ import { Link } from "react-router";
 export function Footer() {
   const primaryLinks = [
     { to: "/lps", label: "LPs" },
-    { to: "/founders", label: "Founders" },
     { to: "/cvc", label: "CVC" },
-    { to: "/platform", label: "Platform" },
-    { to: "/fund", label: "Fund" },
+    { to: "/fund", label: "Thesis" },
+    { to: "/platform", label: "Fund OS" },
+    { to: "/founders", label: "Founders" },
     { to: "/contact", label: "Contact" },
   ];
 
   const resourceLinks = [
+    { to: "/track-record", label: "Track Record" },
     { to: "/data-room", label: "Data Room" },
     { to: "/cases", label: "Cases" },
     { to: "/insights", label: "Insights" },
@@ -38,8 +39,8 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           <div className="lg:col-span-4">
             <div className="text-[15px] tracking-tight text-foreground/72 mb-2">maksat.PRO</div>
-            <div className="text-[12px] text-muted-foreground/50 font-light leading-relaxed max-w-[320px]">
-              Venture platform · CVC · Funds · AI Fund OS
+            <div className="text-[12px] text-muted-foreground/50 font-light leading-relaxed max-w-[360px]">
+              Venture platform for CVC programs, specialized portfolios, founder readiness, and AI-enabled fund operations.
             </div>
           </div>
 
@@ -59,8 +60,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/[0.04] text-[11px] text-muted-foreground/38 font-light">
-          © 2026 maksat.PRO. Information on this website is provided for general informational purposes only.
+        <div className="mt-8 pt-6 border-t border-white/[0.04] text-[11px] text-muted-foreground/38 font-light leading-relaxed">
+          © 2026 maksat.PRO. Information on this website is for general informational purposes only and does not constitute an offer to sell securities or a solicitation to buy securities.
         </div>
       </div>
     </footer>
