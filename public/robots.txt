@@ -5,5 +5,6 @@ Disallow: /admin/
 Disallow: /internal/
 Disallow: /private/
 Disallow: /dashboard/
+Disallow: /data-room/private/
 
 # Public website only. Development, staging, GitLab, and product-test subdomains must be protected separately at the host / DNS / server level.
