@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import type { ReactNode } from "react";
 import { PillButton } from "../components/PillButton";
 import { DiagonalShards } from "../components/DiagonalShards";
 
@@ -14,7 +15,7 @@ const BulletList = ({ items }: { items: string[] }) => (
   </div>
 );
 
-const SectionCard = ({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) => (
+const SectionCard = ({ title, subtitle, children }: { title: string; subtitle?: string; children: ReactNode }) => (
   <div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-8">
     {subtitle && <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">{subtitle}</span>}
     <h2 className="text-[24px] sm:text-[30px] font-light tracking-tight text-foreground/90 mt-3 mb-6">{title}</h2>
@@ -24,84 +25,78 @@ const SectionCard = ({ title, subtitle, children }: { title: string; subtitle?: 
 
 export function LPs() {
   const lpPaths = [
-    ["DAO Fund Access", "For emerging and smaller LPs", "$10K–$100K", "Curated deal flow, reporting, community learning, and selected co-invest visibility.", "/contact?interest=lp-materials", "Request materials"],
-    ["Classic VC Fund Access", "For diversified venture exposure", "$500K–$2M", "Seed–Series A exposure with governance, reporting, and reserve logic.", "/fund", "Review terms"],
-    ["Custom CVC Program", "For corporate groups", "From $2M", "Future-business scouting, pilots, partnership pipeline, and board-level reporting.", "/cvc", "Start CVC sprint"],
-    ["Dedicated Mono-LP Fund", "For family offices and strategic LPs", "From $10M", "Custom thesis, geography, ticket size, reporting depth, and governance rights.", "/contact?interest=lp", "Discuss mandate"],
+    ["Individual Venture Office", "For one LP or family office", "Advisory scope", "Thesis, pipeline, diligence workflow, reporting, and operating setup.", "/contact?interest=lp-portfolio-setup", "Start setup"],
+    ["Club Deal Readiness", "For shared opportunity review", "Deal-by-deal support", "Memo, risk notes, data-room review, allocation logic, and reporting support.", "/contact?interest=club-deal", "Request access"],
+    ["CVC Portfolio Office", "For corporate groups", "Strategic mandate", "Startup scouting, pilot logic, governance, IC process, and board materials.", "/cvc", "Start CVC path"],
+    ["Fund Formation Readiness", "For future structures", "Counsel-ready prep", "Structure options, data-room materials, onboarding logic, and reporting model.", "/fund", "Review options"],
   ];
 
-  const daoAccess = [
-    "Quarterly platform updates and portfolio-level reporting",
-    "Access to curated pipeline visibility, subject to eligibility and confidentiality",
-    "Community and learning layer around venture process, founder evaluation, and market corridors",
-    "Selected co-invest visibility where capacity, eligibility, and allocation policy allow",
-    "No control over mandate, allocation, IC decisions, or portfolio construction",
+  const first30Days = [
+    "LP profile: goals, geography, sectors, decision process, and reporting expectations",
+    "Portfolio thesis: founder profile, stage, sourcing lanes, value-add logic, and exclusion criteria",
+    "Operating setup: workspace, reporting cadence, memo template, and data-room checklist",
+    "Pipeline criteria: intake questions, scoring model, red flags, and shortlist format",
+    "Commercial scope: advisory, venture office, scouting, or diligence service agreement",
   ];
 
-  const timeline = [
-    "Current stage: LP fit conversations and onboarding preparation",
-    "First close target: subject to commitments, counsel, administrator, banking, and onboarding readiness",
-    "Investment period: defined in final documents, with staged deployment through sourcing and IC cadence",
-    "Capital calls: per final fund documents and selected structure",
-    "Reporting cadence: quarterly LP updates, dashboard materials, and annual fund review",
-    "Next LP onboarding window: introductory calls and data-room access by invitation after fit review",
+  const decisionPath = [
+    "Intro call and fit review",
+    "Scope of work and portfolio setup mandate",
+    "Thesis workshop and governance choices",
+    "First scouting sprint and founder shortlist",
+    "Deal-level diligence and memo",
+    "LP review and structure-specific legal check",
+    "Reporting, monitoring, and next sprint planning",
   ];
 
   const reasons = [
-    ["Proprietary founder access", "Technical founders from CIS and adjacent ecosystems with product depth, prior exits, or local traction."],
-    ["Global packaging", "We help founders become understandable, diligence-ready, and credible for international capital."],
-    ["MENA, US, and EU corridors", "Commercialization paths through corporate buyers, family offices, accelerators, and co-investors."],
-    ["AI-enabled Fund OS", "Structured sourcing, scoring, diligence, IC materials, portfolio monitoring, and LP reporting."],
-    ["Shared platform economics", "One operating layer supports CVCs, classic funds, DAO-style access, SPVs, and mono-LP mandates."],
-    ["Co-investment optionality", "Selected LPs may see curated co-investments subject to eligibility, capacity, allocation, and conflicts review."],
+    ["Control before structure", "The LP sees the process, thesis, pipeline, and reporting model before choosing any long-term vehicle."],
+    ["Founder access with context", "We focus on technical founders who need global packaging, market-entry support, and disciplined preparation."],
+    ["Service model first", "The first commercial product is a practical mandate: scouting, diligence, reporting, and setup work."],
+    ["International advisory layer", "External advisors and access partners can support positioning, founder readiness, and introductions where appropriate."],
+    ["AI-enabled operating layer", "Fund OS supports sourcing, scoring, memo workflows, portfolio monitoring, and LP reporting."],
+    ["Compliance-aware language", "The website does not make a public offer and does not promise returns. Formal steps require professional review."],
   ];
 
-  const portfolio = [
-    ["DAO Fund Access", "$5M target", "$10K–$100K LP ticket", "Early access / SPV-style", "20–40 exposures", "Light reserves"],
-    ["Classic VC Fund", "$10M–$20M target", "$500K–$2M LP ticket", "Seed–Series A", "20–30 companies", "Follow-on reserve"],
-    ["Custom CVC Program", "From $2M", "Corporate mandate", "Strategic pilots + investments", "10–20 scouted / 3–7 invested", "Per mandate"],
-    ["Dedicated Mono-LP Fund", "From $10M", "Single LP", "Custom mandate", "Custom", "Custom"],
+  const outputs = [
+    ["LP Portfolio Memo", "A concise document covering profile, thesis, proposed mandate, first sourcing lanes, and next steps."],
+    ["Pipeline Shortlist", "A curated founder list with fit notes, red flags, and recommended next actions."],
+    ["DD Pack", "Memo, data-room review, market notes, founder references, risk map, and recommendation."],
+    ["Reporting Workspace", "Dashboard structure, update template, memo archive, and monitoring logic."],
+    ["Structure Readiness Pack", "Counsel-ready options, onboarding checklist, and document map."],
   ];
 
   const governance = [
-    "Quarterly LP reports and portfolio updates",
-    "Capital account statements",
-    "Pipeline and portfolio dashboard",
-    "IC memos archive",
-    "Annual fund review and reserve planning",
-    "Conflict policy and allocation policy",
-    "LPAC / advisory mechanics for larger structures",
-    "Data room with fund, compliance, and governance materials",
+    "LP review before serious deal execution where the mandate requires it",
+    "Memo archive and rationale for each serious opportunity",
+    "Pipeline dashboard with status, score, next step, owner, and risk notes",
+    "Quarterly reporting pack and portfolio-level update",
+    "Conflict and allocation policy for opportunities shared across mandates",
+    "Data-room discipline for company, LP, and reporting materials",
+    "Clear separation between advisory/setup services and future vehicle formation",
+    "Professional legal and tax review before formal structures",
   ];
 
   const risks = [
-    "Founder and execution risk",
-    "Compliance and capital-source risk",
-    "Jurisdiction and cross-border structuring risk",
+    "Startup execution and market risk",
+    "Compliance and onboarding risk",
+    "Cross-border structuring risk",
     "Follow-on financing and valuation risk",
     "Exit timing and liquidity risk",
-    "Currency and transfer risk",
     "Concentration and allocation risk",
-    "Conflicts between platform vehicles",
+    "Conflicts between platform mandates",
+    "Key-person and operating-capacity risk",
   ];
 
   const custom = [
     "Geography and sourcing corridors",
     "Investment thesis and excluded sectors",
-    "Ticket size and reserve policy",
-    "Co-investment rights and allocation mechanics",
-    "Reporting depth and dashboard access",
-    "IC, observer, or approval mechanics",
-    "Side-letter style rights where appropriate",
-    "Dedicated sourcing lanes and founder-intake criteria",
-  ];
-
-  const process = [
-    "Intro call and mandate fit",
-    "Eligibility, KYC/AML, and source-of-funds review",
-    "Access to relevant LP materials and data room",
-    "Structure-specific counsel and tax review",
-    "Allocation, reporting, and onboarding next steps",
+    "Ticket size and reserve logic",
+    "Approval, IC, observer, or reporting mechanics",
+    "Deal-by-deal vs. portfolio-level review model",
+    "Co-investment visibility and allocation rules",
+    "Data-room and confidentiality level",
+    "External counsel and tax review process",
   ];
 
   return (
@@ -111,50 +106,27 @@ export function LPs() {
           <div className="relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#1a1d26]/70 via-[#12141a]/85 to-[#1a1d26]/70 border border-white/[0.06] backdrop-blur-2xl overflow-hidden">
             <DiagonalShards />
             <div className="relative px-6 sm:px-10 lg:px-12 py-10 sm:py-12">
-              <div className="inline-flex items-center gap-2 mb-5"><div className="w-1.5 h-1.5 rounded-full bg-foreground/70" /><span className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light uppercase tracking-wider">For LPs and strategic capital</span></div>
-              <h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">Access a venture platform built for overlooked technical alpha</h1>
-              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">Structured access to founders who need more than capital: international packaging, compliance discipline, market entry support, and credible bridges into MENA, US, and EU ecosystems.</p>
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4"><PillButton variant="primary" className="w-full sm:w-auto justify-center">Request LP materials</PillButton><Link to="/fund" className="text-[13px] text-muted-foreground/60 hover:text-foreground/85 transition-colors">View product ladder →</Link></div>
+              <div className="inline-flex items-center gap-2 mb-5"><div className="w-1.5 h-1.5 rounded-full bg-foreground/70" /><span className="text-[12px] sm:text-[13px] text-muted-foreground/60 font-light uppercase tracking-wider">For LPs and family offices</span></div>
+              <h1 className="text-[36px] sm:text-[48px] lg:text-[64px] font-light tracking-tight text-foreground/95 mb-5 sm:mb-6 leading-tight max-w-4xl">Start with a venture office mandate</h1>
+              <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">maksat.PRO helps LPs and family offices move from venture interest to an executable private portfolio process: thesis, deal flow, diligence, approval workflow, data room, and reporting. Formal structures come later, after fit review and professional guidance.</p>
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4"><PillButton to="/contact?interest=lp-portfolio-setup" variant="primary" className="w-full sm:w-auto justify-center">Start portfolio setup</PillButton><PillButton to="/contact?interest=lp-materials" variant="secondary" className="w-full sm:w-auto justify-center">Request LP memo</PillButton><Link to="/trust-center" className="text-[13px] text-muted-foreground/60 hover:text-foreground/85 transition-colors">Review trust model →</Link></div>
             </div>
           </div>
         </motion.div>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24">
-          <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Choose your LP path</span>
-          <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mt-3 mb-4 max-w-3xl">Four entry points for different LP mandates.</h2>
-          <p className="text-[13px] sm:text-[15px] text-muted-foreground/65 font-light leading-relaxed max-w-3xl mb-8">Start from the structure that matches your capital size, control needs, reporting expectations, and strategic intent.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
-            {lpPaths.map(([title, audience, ticket, desc, to, cta], i) => (
-              <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="rounded-[24px] sm:rounded-[26px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-7">
-                <div className="text-[11px] text-muted-foreground/42 font-light uppercase tracking-wider mb-4">{ticket}</div>
-                <h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3 leading-tight">{title}</h3>
-                <div className="text-[12px] text-muted-foreground/50 font-light mb-4">{audience}</div>
-                <p className="text-[13px] sm:text-[14px] text-muted-foreground/68 font-light leading-relaxed mb-6">{desc}</p>
-                <Link to={to} className="text-[13px] text-foreground/82 hover:text-foreground transition-colors">{cta} →</Link>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <section className="mb-16 sm:mb-20 lg:mb-24"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Choose your LP path</span><h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mt-3 mb-4 max-w-3xl">Four entry points that lead to the same disciplined process.</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/65 font-light leading-relaxed max-w-3xl mb-8">The right path depends on the LP’s control needs, desired visibility, reporting expectations, and whether the goal is individual venture office work, club-deal support, CVC, or future fund readiness.</p><div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">{lpPaths.map(([title, audience, ticket, desc, to, cta], i) => <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="rounded-[24px] sm:rounded-[26px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-7"><div className="text-[11px] text-muted-foreground/42 font-light uppercase tracking-wider mb-4">{ticket}</div><h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3 leading-tight">{title}</h3><div className="text-[12px] text-muted-foreground/50 font-light mb-4">{audience}</div><p className="text-[13px] sm:text-[14px] text-muted-foreground/68 font-light leading-relaxed mb-6">{desc}</p><Link to={to} className="text-[13px] text-foreground/82 hover:text-foreground transition-colors">{cta} →</Link></motion.div>)}</div></section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16 sm:mb-20 lg:mb-24">
-          <SectionCard title="What smaller LPs receive" subtitle="DAO / smaller LP"><BulletList items={daoAccess} /></SectionCard>
-          <SectionCard title="Current stage and cadence" subtitle="Classic fund timeline"><BulletList items={timeline} /></SectionCard>
-        </section>
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16 sm:mb-20 lg:mb-24"><SectionCard title="What LP receives in the first 30–45 days" subtitle="Concrete outputs"><BulletList items={first30Days} /></SectionCard><SectionCard title="The decision path" subtitle="From interest to operating mandate"><div className="space-y-4">{decisionPath.map((step, index) => <div key={step} className="grid grid-cols-[48px_1fr] gap-4 rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5"><div className="text-[12px] text-muted-foreground/40 font-light uppercase tracking-wider">0{index + 1}</div><div className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{step}</div></div>)}</div></SectionCard></section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24"><h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">Why LPs Back Us</h2><div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">{reasons.map(([title, description], i) => <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-8"><h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3">{title}</h3><p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{description}</p></motion.div>)}</div></section>
+        <section className="mb-16 sm:mb-20 lg:mb-24"><h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">Why this is credible for LPs</h2><div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">{reasons.map(([title, description], i) => <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="rounded-[22px] sm:rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-8"><h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3">{title}</h3><p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{description}</p></motion.div>)}</div></section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24"><h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">Portfolio Construction Logic</h2><div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] overflow-hidden"><div className="hidden xl:grid grid-cols-6 gap-4 px-6 py-4 border-b border-white/[0.05] text-[11px] text-muted-foreground/42 font-light uppercase tracking-wider"><div>Product</div><div>Target size</div><div>Ticket</div><div>Stage</div><div>Target companies</div><div>Reserve logic</div></div><div className="divide-y divide-white/[0.04]">{portfolio.map((row, i) => <motion.div key={row[0]} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-4 p-5 sm:p-6">{row.map((cell, idx) => <div key={`${row[0]}-${idx}`}><div className="xl:hidden text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-1">{["Product", "Target size", "Ticket", "Stage", "Target companies", "Reserve logic"][idx]}</div><div className={`${idx === 0 ? "text-[16px] sm:text-[18px] text-foreground/88" : "text-[13px] text-muted-foreground/72"} font-light`}>{cell}</div></div>)}</motion.div>)}</div></div></section>
+        <section className="mb-16 sm:mb-20 lg:mb-24"><h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-light tracking-tight text-foreground/90 mb-8 sm:mb-12">What the LP can request</h2><div className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] overflow-hidden"><div className="divide-y divide-white/[0.04]">{outputs.map(([title, description], index) => <motion.div key={title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }} className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-3 md:gap-8 p-5 sm:p-6"><div className="text-[16px] sm:text-[18px] text-foreground/88 font-light">{title}</div><div className="text-[13px] sm:text-[14px] text-muted-foreground/72 font-light leading-relaxed">{description}</div></motion.div>)}</div></div></section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16 sm:mb-20 lg:mb-24">
-          <SectionCard title="LP Reporting & Governance"><BulletList items={governance} /></SectionCard>
-          <SectionCard title="Risk Management Lens"><BulletList items={risks} /><p className="text-[12px] sm:text-[13px] text-muted-foreground/50 font-light leading-relaxed mt-8">Risk controls are implemented through investment memos, IC process, legal review, capital-source checks, allocation policies, and staged deployment. No risk control eliminates investment risk.</p></SectionCard>
-        </section>
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16 sm:mb-20 lg:mb-24"><SectionCard title="LP Reporting & Governance"><BulletList items={governance} /></SectionCard><SectionCard title="Risk Management Lens"><BulletList items={risks} /><p className="text-[12px] sm:text-[13px] text-muted-foreground/50 font-light leading-relaxed mt-8">Risk controls are implemented through memos, review process, professional guidance, clear documentation, allocation policies, and staged execution. No risk control eliminates venture risk.</p></SectionCard></section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"><div className="lg:col-span-5"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Dedicated Mono-LP Fund</span><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-4">What can be customized</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">For larger family offices and strategic LPs, the mandate can be designed around a specific thesis, geography, governance model, reporting depth, and co-investment logic.</p></div><div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">{custom.map((item) => <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{item}</div>)}</div></div></section>
+        <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"><div className="lg:col-span-5"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Custom mandate</span><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-4">What can be customized</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">For larger LPs, the mandate can be designed around a specific thesis, geography, approval model, reporting depth, and future structure.</p></div><div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">{custom.map((item) => <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{item}</div>)}</div></div></section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/40 via-[#12141a]/50 to-[#1a1d26]/40 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12"><div className="lg:col-span-5"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">LP onboarding</span><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-4">How the process starts</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">We start with fit and eligibility before discussing any formal allocation, structure, or data-room materials.</p></div><div className="lg:col-span-7 space-y-4">{process.map((step, index) => <div key={step} className="grid grid-cols-[48px_1fr] gap-4 rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5"><div className="text-[12px] text-muted-foreground/40 font-light uppercase tracking-wider">0{index + 1}</div><div className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{step}</div></div>)}</div></div></section>
-
-        <section className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"><div className="lg:col-span-7"><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mb-4">Co-investment engine for selected LPs</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">LPs may receive curated co-investment opportunities alongside the fund, subject to allocation policy, eligibility, available capacity, conflicts review, and compliance approval.</p></div><div className="lg:col-span-5 flex lg:justify-end"><Link to="/contact" className="text-[13px] text-foreground/82 hover:text-foreground transition-colors">Discuss LP fit →</Link></div></div></section>
+        <section className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"><div className="lg:col-span-7"><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mb-4">Ready to review the LP memo?</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">The best next step is a short fit call and LP memo request. After that we can define the portfolio setup mandate, data-room access, and first scouting sprint.</p></div><div className="lg:col-span-5 flex flex-col sm:flex-row lg:justify-end gap-3"><PillButton to="/contact?interest=lp-materials" variant="primary">Request LP memo</PillButton><PillButton to="/contact?interest=lp-portfolio-setup" variant="secondary">Start portfolio setup</PillButton></div></div></section>
       </div>
     </div>
   );
