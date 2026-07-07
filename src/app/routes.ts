@@ -4,7 +4,7 @@ import { Home } from "./pages/Home";
 import { Advisory } from "./pages/Advisory";
 import { Fund } from "./pages/Fund";
 import { LPs } from "./pages/LPs";
-import { Founders } from "./pages/Founders";
+import { FoundersFocused } from "./pages/FoundersFocused";
 import { Platform } from "./pages/Platform";
 import { CVC } from "./pages/CVC";
 import { DataRoom } from "./pages/DataRoom";
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
       { path: "advisory", Component: Advisory },
       { path: "fund", Component: Fund },
       { path: "lps", Component: LPs },
-      { path: "founders", Component: Founders },
+      { path: "founders", Component: FoundersFocused },
       { path: "platform", Component: Platform },
       { path: "cvc", Component: CVC },
       { path: "data-room", Component: DataRoom },
