@@ -57,7 +57,7 @@ export function TrackRecord() {
             <div className="lg:col-span-8">
               <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Track Record</span>
               <h1 className="text-[40px] sm:text-[52px] lg:text-[68px] font-light tracking-[-0.055em] text-foreground/95 mt-4 mb-6 leading-[0.98]">
-                Built on delivery experience since 2016.
+                Built on delivery experience since 2016
               </h1>
               <p className="text-[15px] sm:text-[17px] text-muted-foreground/68 font-light leading-relaxed max-w-3xl">
                 The company started as a product engineering team and gradually evolved into a venture infrastructure platform for LPs, CVC programs, founders, data rooms, and AI-assisted operating workflows
