@@ -19,36 +19,34 @@ const ProgramGrid = ({ items }: { items: { title: string; text: string }[] }) =>
 
 const FounderFocusBlock = () => (
   <section className="mb-16 sm:mb-20 lg:mb-24">
-    <div className="rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10">
-      <div className="max-w-4xl mb-8 sm:mb-10">
-        <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span>
-        <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-light tracking-tight text-foreground/90 mt-3 mb-4 leading-tight">
-          Where we focus founder readiness.
-        </h2>
-        <p className="text-[13px] sm:text-[15px] text-muted-foreground/68 font-light leading-relaxed max-w-3xl">
-          We do not position every startup for the same market. Founder readiness starts with a clear domain focus and the evidence needed for that domain.
-        </p>
-      </div>
+    <div className="max-w-4xl mb-8 sm:mb-10">
+      <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span>
+      <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-light tracking-tight text-foreground/90 mt-3 mb-4 leading-tight">
+        Where we focus founder readiness.
+      </h2>
+      <p className="text-[13px] sm:text-[15px] text-muted-foreground/68 font-light leading-relaxed max-w-3xl">
+        We do not position every startup for the same market. Founder readiness starts with a clear domain focus and the evidence needed for that domain.
+      </p>
+    </div>
 
-      <div className="space-y-3 sm:space-y-4">
-        {founderFocus.map((item, index) => (
-          <motion.div key={item.title} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="rounded-[20px] bg-white/[0.03] border border-white/[0.055] p-5 sm:p-6">
-            <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-8">
-              <div className="flex items-center gap-4 lg:w-[260px] shrink-0">
-                <div className="h-9 w-9 rounded-full bg-white/[0.035] border border-white/[0.06] flex items-center justify-center text-[11px] text-muted-foreground/45 font-light">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <h3 className="text-[22px] sm:text-[26px] font-light tracking-tight text-foreground/92 leading-tight">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl lg:pt-1">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
+      {founderFocus.map((item, index) => (
+        <motion.div key={item.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="rounded-[22px] bg-gradient-to-br from-[#1a1d26]/48 via-[#12141a]/56 to-[#1a1d26]/48 border border-white/[0.06] p-5 sm:p-6">
+          <div className="flex items-start gap-4">
+            <div className="h-9 w-9 rounded-full bg-white/[0.035] border border-white/[0.06] flex items-center justify-center text-[11px] text-muted-foreground/45 font-light shrink-0">
+              {String(index + 1).padStart(2, "0")}
+            </div>
+            <div className="min-w-0">
+              <h3 className="text-[21px] sm:text-[25px] font-light tracking-tight text-foreground/92 mb-2 leading-tight">
+                {item.title}
+              </h3>
+              <p className="text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">
                 {item.text}
               </p>
             </div>
-          </motion.div>
-        ))}
-      </div>
+          </div>
+        </motion.div>
+      ))}
     </div>
   </section>
 );
