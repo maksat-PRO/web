@@ -16,6 +16,13 @@ export function Fund() {
     "Classic Fund Readiness",
   ];
 
+  const coInvestorOutputs = [
+    "Prepared regional deal flow",
+    "Founder readiness notes",
+    "Diligence packs",
+    "Co-investment context",
+  ];
+
   return (
     <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-6 sm:px-8 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
@@ -47,7 +54,7 @@ export function Fund() {
           </div>
         </section>
 
-        <section className="rounded-[26px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-8 sm:p-10">
+        <section className="rounded-[26px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-8 sm:p-10 mb-16">
           <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Vehicle ladder</span>
           <h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-8">Four vehicle paths, one operating standard.</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -56,6 +63,23 @@ export function Fund() {
                 {item}
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-5">
+              <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">For funds and co-investors</span>
+              <h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-4 leading-tight">Prepared regional deal flow with operating context.</h2>
+              <p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">We help funds and co-investors review opportunities through founder readiness notes, diligence packs, market context, and co-investment preparation. This is not an offer or allocation promise; it is a disciplined preparation layer.</p>
+            </div>
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {coInvestorOutputs.map((item) => (
+                <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
