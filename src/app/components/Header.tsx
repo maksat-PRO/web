@@ -47,7 +47,7 @@ export function Header() {
   const navLinks = [
     { to: "/lps", label: "LPs" },
     { to: "/cvc", label: "CVC" },
-    { to: "/fund", label: "Thesis" },
+    { to: "/thesis", label: "Thesis" },
     { to: "/platform", label: "Fund OS" },
     { to: "/founders", label: "Founders" },
     { to: "/track-record", label: "Track" },
