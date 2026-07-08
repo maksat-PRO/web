@@ -15,14 +15,15 @@ export function Contact() {
   const interestOptions = [
     { value: "lp", label: "LP / Allocation discussion" },
     { value: "lp-materials", label: "Request LP materials" },
+    { value: "lp-portfolio-setup", label: "LP portfolio setup" },
     { value: "lp-data-room", label: "LP Data Room access" },
     { value: "founder", label: "Founder / Submit deck" },
     { value: "founder-score", label: "Founder Readiness Score" },
     { value: "cvc", label: "CVC Program" },
     { value: "cvc-launch-pack", label: "CVC Launch Pack" },
     { value: "platform", label: "AI Fund OS / Platform" },
-    { value: "advisory", label: "Advisory" },
-    { value: "fund", label: "Venture Fund" },
+    { value: "venture-office", label: "Venture Office / Operating Mandate" },
+    { value: "thesis", label: "Thesis / Vehicle Readiness" },
     { value: "insights", label: "Insights / Field Notes" },
     { value: "other", label: "Other" },
   ];
