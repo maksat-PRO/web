@@ -5,7 +5,7 @@ import { DiagonalShards } from "../components/DiagonalShards";
 import { founderFocus } from "./FounderFocusCards";
 import { readinessCards, founderOutputs } from "./FounderReadinessCards";
 
-const Grid = ({ items }: { items: { title: string; text: string }[] }) => (
+const ProgramGrid = ({ items }: { items: { title: string; text: string }[] }) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
     {items.map((item, index) => (
       <motion.div key={item.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="h-full min-h-[220px] rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-7 overflow-hidden">
@@ -15,6 +15,30 @@ const Grid = ({ items }: { items: { title: string; text: string }[] }) => (
       </motion.div>
     ))}
   </div>
+);
+
+const FounderFocusMatrix = () => (
+  <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10 overflow-hidden">
+    <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 lg:gap-12 items-start">
+      <div>
+        <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span>
+        <h2 className="text-[28px] sm:text-[36px] lg:text-[42px] font-light tracking-tight text-foreground/90 mt-3 mb-4 leading-tight">Where we focus founder readiness.</h2>
+        <p className="text-[13px] sm:text-[15px] text-muted-foreground/68 font-light leading-relaxed max-w-md">
+          We do not position every startup for the same market. Founder readiness starts with a clear domain focus and the evidence needed for that domain.
+        </p>
+      </div>
+
+      <div className="rounded-[24px] bg-white/[0.025] border border-white/[0.055] overflow-hidden">
+        {founderFocus.map((item, index) => (
+          <motion.div key={item.title} initial={{ opacity: 0, x: 18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="grid grid-cols-1 md:grid-cols-[56px_210px_1fr] gap-3 md:gap-6 px-5 sm:px-6 py-5 border-b border-white/[0.045] last:border-b-0">
+            <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider">{String(index + 1).padStart(2, "0")}</div>
+            <h3 className="text-[20px] sm:text-[24px] font-light tracking-tight text-foreground/90 leading-tight">{item.title}</h3>
+            <p className="text-[13px] sm:text-[14px] text-muted-foreground/68 font-light leading-relaxed">{item.text}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
 );
 
 export function FoundersDetailed() {
@@ -32,16 +56,12 @@ export function FoundersDetailed() {
           </div>
         </section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24">
-          <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span>
-          <h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">Where we focus founder readiness.</h2>
-          <Grid items={founderFocus} />
-        </section>
+        <FounderFocusMatrix />
 
         <section className="mb-16 sm:mb-20 lg:mb-24">
           <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Readiness program</span>
           <h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">A process before introductions.</h2>
-          <Grid items={readinessCards} />
+          <ProgramGrid items={readinessCards} />
         </section>
 
         <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[26px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Outputs</span><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-8">What founders receive.</h2><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{founderOutputs.map((item) => <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{item}</div>)}</div></section>
