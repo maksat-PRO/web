@@ -4,7 +4,7 @@ export function Footer() {
   const primaryLinks = [
     { to: "/lps", label: "LPs" },
     { to: "/cvc", label: "CVC" },
-    { to: "/fund", label: "Thesis" },
+    { to: "/thesis", label: "Thesis" },
     { to: "/platform", label: "Fund OS" },
     { to: "/founders", label: "Founders" },
     { to: "/contact", label: "Contact" },
