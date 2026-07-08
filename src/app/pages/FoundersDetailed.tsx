@@ -5,13 +5,13 @@ import { DiagonalShards } from "../components/DiagonalShards";
 import { founderFocus } from "./FounderFocusCards";
 import { readinessCards, founderOutputs } from "./FounderReadinessCards";
 
-const Grid = ({ items, five = false }: { items: { title: string; text: string }[]; five?: boolean }) => (
-  <div className={`grid grid-cols-1 md:grid-cols-2 ${five ? "xl:grid-cols-5" : "xl:grid-cols-3"} gap-4 sm:gap-5`}>
+const Grid = ({ items }: { items: { title: string; text: string }[] }) => (
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
     {items.map((item, index) => (
-      <motion.div key={item.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6">
+      <motion.div key={item.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.04 }} className="h-full min-h-[220px] rounded-[24px] bg-gradient-to-br from-[#1a1d26]/50 via-[#12141a]/60 to-[#1a1d26]/50 border border-white/[0.06] p-6 sm:p-7 overflow-hidden">
         <div className="text-[11px] text-muted-foreground/40 font-light uppercase tracking-wider mb-4">{String(index + 1).padStart(2, "0")}</div>
-        <h3 className="text-[20px] sm:text-[24px] font-light tracking-tight text-foreground/90 mb-3 leading-tight">{item.title}</h3>
-        <p className="text-[13px] sm:text-[14px] text-muted-foreground/68 font-light leading-relaxed">{item.text}</p>
+        <h3 className="text-[20px] sm:text-[23px] font-light tracking-tight text-foreground/90 mb-3 leading-tight break-words">{item.title}</h3>
+        <p className="text-[13px] sm:text-[14px] text-muted-foreground/68 font-light leading-relaxed break-words">{item.text}</p>
       </motion.div>
     ))}
   </div>
@@ -32,8 +32,18 @@ export function FoundersDetailed() {
           </div>
         </section>
 
-        <section className="mb-16 sm:mb-20 lg:mb-24"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span><h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">Where we focus founder readiness.</h2><Grid items={founderFocus} five /></section>
-        <section className="mb-16 sm:mb-20 lg:mb-24"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Readiness program</span><h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">A process before introductions.</h2><Grid items={readinessCards} five /></section>
+        <section className="mb-16 sm:mb-20 lg:mb-24">
+          <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Founder focus</span>
+          <h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">Where we focus founder readiness.</h2>
+          <Grid items={founderFocus} />
+        </section>
+
+        <section className="mb-16 sm:mb-20 lg:mb-24">
+          <span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Readiness program</span>
+          <h2 className="text-[26px] sm:text-[34px] lg:text-[38px] font-light tracking-tight text-foreground/90 mt-3 mb-8 max-w-4xl">A process before introductions.</h2>
+          <Grid items={readinessCards} />
+        </section>
+
         <section className="mb-16 sm:mb-20 lg:mb-24 rounded-[26px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><span className="text-[12px] text-muted-foreground/50 font-light uppercase tracking-wider">Outputs</span><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mt-3 mb-8">What founders receive.</h2><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{founderOutputs.map((item) => <div key={item} className="rounded-[18px] bg-white/[0.025] border border-white/[0.05] p-5 text-[13px] sm:text-[14px] text-muted-foreground/70 font-light leading-relaxed">{item}</div>)}</div></section>
         <section className="rounded-[26px] sm:rounded-[28px] bg-gradient-to-br from-[#1a1d26]/45 via-[#12141a]/55 to-[#1a1d26]/45 border border-white/[0.06] p-6 sm:p-10"><div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"><div className="lg:col-span-7"><h2 className="text-[26px] sm:text-[34px] font-light tracking-tight text-foreground/90 mb-4">Ready to prepare your founder materials?</h2><p className="text-[13px] sm:text-[15px] text-muted-foreground/70 font-light leading-relaxed">Send a deck or short company note. We review fit, readiness gaps, market path, and the clearest next-step package.</p></div><div className="lg:col-span-5 flex flex-col sm:flex-row lg:justify-end gap-3"><PillButton to="/contact?interest=founder" variant="primary">Submit materials</PillButton></div></div></section>
       </div>
