@@ -40,7 +40,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <div className="text-[15px] tracking-tight text-foreground/72 mb-2">maksat.PRO</div>
             <div className="text-[12px] text-muted-foreground/50 font-light leading-relaxed max-w-[360px]">
-              Venture platform for CVC programs, specialized portfolios, founder readiness, and AI-enabled fund operations.
+              Venture platform for CVC programs, specialized portfolios, founder readiness, and AI-enabled fund operations
             </div>
           </div>
 

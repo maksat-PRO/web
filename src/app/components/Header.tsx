@@ -70,7 +70,7 @@ export function Header() {
               </div>
               <div className="min-w-0">
                 <div className="text-[14px] sm:text-[16px] leading-tight tracking-[-0.025em] text-foreground/95 transition-colors group-hover:text-foreground truncate">maksat.PRO</div>
-                <div className="hidden sm:block text-[11px] leading-tight text-muted-foreground/58 font-light truncate">CVC · Specialized portfolios · Fund OS</div>
+                <div className="hidden sm:block text-[11px] leading-tight text-muted-foreground/58 font-light truncate">Ventures portfolios · CVC · Fund OS</div>
               </div>
             </Link>
 

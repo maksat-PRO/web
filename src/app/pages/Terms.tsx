@@ -49,13 +49,13 @@ export function Terms() {
               </h1>
 
               <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-2xl mb-8">
-                Legal terms governing use of our website and services. Updated February 2026.
+                Legal terms governing use of our website and services. Updated July 2026.
               </p>
 
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.08]">
                 <div className="w-1.5 h-1.5 rounded-full bg-foreground/50" />
                 <span className="text-[12px] text-muted-foreground/80 font-light">
-                  Last updated: February 2026
+                  Last updated: July 2026
                 </span>
               </div>
             </div>

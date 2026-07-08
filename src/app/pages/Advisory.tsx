@@ -7,31 +7,31 @@ export function Advisory() {
   const capabilities = [
     {
       title: "CVC Launch & Operations",
-      description: "We help corporate groups create a venture function with a mandate, thesis, budget, IC rhythm, reporting model, and startup pipeline.",
+      description: "We help corporate groups create a venture function with a mandate, thesis, budget, IC rhythm, reporting model, and startup pipeline",
       deliverables: ["CVC mandate", "Pipeline sprint", "IC materials", "Governance calendar"],
     },
     {
       title: "Fund Formation Support",
-      description: "We coordinate the launch package for private fund structures with counsel, administrators, banking, KYC/AML, and LP data room workflows.",
+      description: "We coordinate the launch package for private fund structures with counsel, administrators, banking, KYC/AML, and LP data room workflows",
       deliverables: ["Launch roadmap", "Document checklist", "Data room", "LP onboarding process"],
     },
     {
       title: "AI Fund OS Implementation",
-      description: "We build operational workflows for sourcing, scoring, memo generation, founder tracking, portfolio monitoring, and LP reporting.",
+      description: "We build operational workflows for sourcing, scoring, memo generation, founder tracking, portfolio monitoring, and LP reporting",
       deliverables: ["Deal-flow database", "AI memo workflow", "IC dashboard", "Reporting templates"],
     },
     {
       title: "Venture Due Diligence",
-      description: "We run evidence-based diligence for founders, CVC targets, co-investments, and cross-border commercialization opportunities.",
+      description: "We run evidence-based diligence for founders, CVC targets, co-investments, and cross-border commercialization opportunities",
       deliverables: ["Founder assessment", "Market memo", "Technical review", "Risk register"],
     },
   ];
 
   const process = [
-    { stage: "01", title: "Mandate", duration: "1–2 weeks", detail: "Define capital, governance, geography, thesis, and decision rights." },
-    { stage: "02", title: "Setup", duration: "2–6 weeks", detail: "Build operating model, data room, reporting, and legal coordination path." },
-    { stage: "03", title: "Pipeline", duration: "4–8 weeks", detail: "Source, screen, and prioritize founders or targets for the first IC." },
-    { stage: "04", title: "Execution", duration: "Ongoing", detail: "Run IC, diligence, portfolio support, reporting, and follow-on workflows." },
+    { stage: "01", title: "Mandate", duration: "1–2 weeks", detail: "Define capital, governance, geography, thesis, and decision rights" },
+    { stage: "02", title: "Setup", duration: "2–6 weeks", detail: "Build operating model, data room, reporting, and legal coordination path" },
+    { stage: "03", title: "Pipeline", duration: "4–8 weeks", detail: "Source, screen, and prioritize founders or targets for the first IC" },
+    { stage: "04", title: "Execution", duration: "Ongoing", detail: "Run IC, diligence, portfolio support, reporting, and follow-on workflows" },
   ];
 
   return (
@@ -58,7 +58,7 @@ export function Advisory() {
               </h1>
 
               <p className="text-[14px] sm:text-[16px] lg:text-[17px] text-muted-foreground/70 font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">
-                maksat.PRO works with corporates, family offices, LPs, and founders to design CVC programs, launch fund structures, build AI-enabled venture workflows, and execute stage-gated due diligence.
+                maksat.PRO works with corporates, family offices, LPs, and founders to design CVC programs, launch fund structures, build AI-enabled venture workflows, and execute stage-gated due diligence
               </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
